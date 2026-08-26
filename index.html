@@ -3,118 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bremen Security GmbH | Objekt- & Personenschutz</title>
+  <title>Bremen Security GmbH | Tactical Security & Defense</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg: #111827;
-      --card-bg: #1f2937;
+      --bg: #090d16;
+      --card-bg: rgba(31, 41, 55, 0.6);
       --accent: #dc2626;
-      --accent-hover: #b91c1c;
-      --text: #e5e7eb;
+      --accent-glow: rgba(220, 38, 38, 0.4);
+      --accent-hover: #ef4444;
+      --text: #f3f4f6;
       --text-muted: #9ca3af;
-      --border: #374151;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(220, 38, 38, 0.5);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; scroll-behavior: smooth; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; background-image: radial-gradient(circle at 50% 0%, #1e1b2e 0%, var(--bg) 70%); min-height: 100vh; }
+
+    /* HEADER / HERO */
+    header { background: linear-gradient(180deg, rgba(17,24,39,0.9) 0%, rgba(9,13,22,0.8) 100%); border-bottom: 2px solid var(--accent); padding: 60px 20px 40px; text-align: center; position: relative; }
+    .badge { display: inline-block; background: rgba(220, 38, 38, 0.15); border: 1px solid var(--accent); color: var(--accent); font-weight: 700; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+    header h1 { font-size: 3rem; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; text-shadow: 0 0 20px var(--accent-glow); }
+    header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 10px auto 0; }
+
+    /* NAV */
+    nav { display: flex; justify-content: center; gap: 30px; background: rgba(11, 15, 23, 0.8); backdrop-filter: blur(10px); padding: 15px; border-bottom: 1px solid var(--border); sticky; top: 0; z-index: 100; }
+    nav a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+    nav a:hover, nav a.active { color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
+
+    /* LAYOUT & CARDS */
+    .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 25px; margin-top: 50px; }
+
+    .card { background: var(--card-bg); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 12px; padding: 30px; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
+    .card:hover { transform: translateY(-5px); border-color: var(--border-accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px var(--accent-glow); }
+    .card-icon { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+    .card h3 { font-size: 1.4rem; margin-bottom: 10px; font-weight: 700; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* STATS STRIP */
+    .stats-container { display: flex; justify-content: space-around; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 40px 0; text-align: center; flex-wrap: wrap; gap: 20px; }
+    .stat-item h4 { font-size: 2rem; color: var(--accent); font-weight: 900; }
+    .stat-item p { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* CALC & FORM */
+    .calc-group { margin-bottom: 20px; }
+    .calc-group label { display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+    .calc-group input, .calc-group select { width: 100%; padding: 12px 15px; background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border); color: #fff; border-radius: 6px; font-size: 1rem; outline: none; transition: 0.3s; }
+    .calc-group input:focus, .calc-group select:focus { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+
+    .price-box { background: rgba(220, 38, 38, 0.08); border: 1px dashed var(--accent); border-radius: 8px; padding: 20px; text-align: center; margin-top: 20px; }
+    .price-display { font-size: 2.2rem; font-weight: 900; color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
+
+    form input, form textarea { width: 100%; padding: 12px 15px; margin-bottom: 15px; background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border); color: #fff; border-radius: 6px; font-size: 0.95rem; outline: none; }
+    form input:focus, form textarea:focus { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
     
-    header { background-color: var(--card-bg); border-bottom: 3px solid var(--accent); padding: 20px 0; text-align: center; }
-    header h1 { font-size: 2.2rem; letter-spacing: 2px; }
-    header p { color: var(--accent); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+    .btn-submit { width: 100%; padding: 14px; background: var(--accent); color: #fff; border: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 6px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px var(--accent-glow); }
+    .btn-submit:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
-    nav { display: flex; justify-content: center; gap: 20px; background: #0b0f17; padding: 10px; border-bottom: 1px solid var(--border); }
-    nav a { color: var(--text); text-decoration: none; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }
-    nav a:hover { color: var(--accent); }
+    footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 80px; background: #070a10; }
 
-    .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
-    
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 25px; }
-    .card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.3rem; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
-
-    /* Calculator Styles */
-    .calc-group { margin-bottom: 15px; }
-    .calc-group label { display: block; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 5px; }
-    .calc-group input { width: 100%; padding: 10px; background: var(--bg); border: 1px solid var(--border); color: #fff; border-radius: 4px; }
-    .price-display { font-size: 1.8rem; font-weight: bold; color: var(--accent); text-align: center; margin-top: 15px; }
-
-    /* Form Styles */
-    form input, form textarea { width: 100%; padding: 10px; margin-bottom: 15px; background: var(--bg); border: 1px solid var(--border); color: #fff; border-radius: 4px; }
-    form button { width: 100%; padding: 12px; background: var(--accent); color: #fff; border: none; font-weight: bold; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: 0.2s; }
-    form button:hover { background: var(--accent-hover); }
-
-    footer { text-align: center; padding: 30px; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 50px; }
+    @media (max-width: 768px) { header h1 { font-size: 2rem; } .grid-2 { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>🛡️ BREMEN SECURITY</h1>
-    <p>GmbH Objekt- & Personenschutz — Bremen RP</p>
+    <div class="badge"><i class="fa-solid fa-shield-halved"></i> Security & Protection</div>
+    <h1>Bremen Security</h1>
+    <p>Premium Objekt-, Personen- und Eventschutz für das Einsatzgebiet Bremen RP.</p>
   </header>
 
   <nav>
-    <a href="#services">Leistungen</a>
-    <a href="#rechner">Preisrechner</a>
-    <a href="#anfrage">Anfrage</a>
+    <a href="#services"><i class="fa-solid fa-list-check"></i> Leistungen</a>
+    <a href="#rechner"><i class="fa-solid fa-calculator"></i> Preisrechner</a>
+    <a href="#anfrage"><i class="fa-solid fa-paper-plane"></i> Einsatz anfragen</a>
   </nav>
 
   <div class="container">
     
+    <!-- STATS -->
+    <div class="stats-container">
+      <div class="stat-item"><h4>100%</h4><p>Disziplin</p></div>
+      <div class="stat-item"><h4>24/7</h4><p>Einsatzbereit</p></div>
+      <div class="stat-item"><h4>RP-Kanal</h4><p>Security HQ</p></div>
+      <div class="stat-item"><h4>50%</h4><p>Vorauszahlung</p></div>
+    </div>
+
     <!-- LEISTUNGEN -->
     <section id="services">
-      <h2 style="text-align: center; margin-bottom: 20px;">Unsere Einsatzbereiche</h2>
-      <div class="grid">
+      <h2 style="text-align: center; font-size: 1.8rem;">Sicherheitsdienstleistungen</h2>
+      <div class="grid-3">
         <div class="card">
-          <h3>🏢 Objektschutz</h3>
-          <p>Sicherung von Gebäuden, Banken, Juwelieren und Firmengeländen vor unbefugtem Zutritt und Überfällen.</p>
+          <div class="card-icon"><i class="fa-solid fa-building-shield"></i></div>
+          <h3>Objektschutz</h3>
+          <p>Lückenlose Sicherung von Juwelieren, Banken, Firmengeländen und privaten Anwesen vor unbefugtem Zutritt.</p>
         </div>
         <div class="card">
-          <h3>👤 Personenschutz</h3>
-          <p>Diskreter oder offensiver Schutz von VIPs, Managern und gefährdeten Personen im gesamten RP-Gebiet.</p>
+          <div class="card-icon"><i class="fa-solid fa-user-ninja"></i></div>
+          <h3>Personenschutz</h3>
+          <p>Hochprofessioneller Begleitschutz für VIPs, Manager oder Zielpersonen bei gefährlichen RP-Verhandlungen.</p>
         </div>
         <div class="card">
-          <h3>🚨 Event-Security</h3>
-          <p>Einlasskontrollen, Ordnungssicherung und VIP-Betreuung für Partys, Meetings oder Großveranstaltungen.</p>
+          <div class="card-icon"><i class="fa-solid fa-masks-theater"></i></div>
+          <h3>Event-Security</h3>
+          <p>Einlasskontrollen, Ordnungssicherung und VIP-Logenverwaltung für Partys, Treffen und Groß-Events.</p>
         </div>
       </div>
     </section>
 
-    <!-- PREISRECHNER & ANFRAGE -->
-    <div class="grid" style="margin-top: 50px;">
+    <!-- INTERAKTIVER BEREICH -->
+    <div class="grid-2">
       
-      <!-- Rechner -->
+      <!-- CALCULATOR -->
       <section id="rechner" class="card">
-        <h3>Einsatz-Kostenrechner</h3>
+        <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
+        <h3>Live-Einsatzrechner</h3>
+        <p style="margin-bottom: 20px;">Berechne direkt die geschätzten Einsatzkosten.</p>
+        
         <div class="calc-group">
-          <label for="kraefte">Anzahl Sicherheitskräfte:</label>
+          <label>Einsatzart</label>
+          <select id="type" onchange="calculate()">
+            <option value="500">Standard Objektschutz ($500/Std per Kraft)</option>
+            <option value="750">High-Risk Personenschutz ($750/Std per Kraft)</option>
+            <option value="400">Event Security ($400/Std per Kraft)</option>
+          </select>
+        </div>
+        <div class="calc-group">
+          <label>Sicherheitskräfte (Anzahl)</label>
           <input type="number" id="kraefte" value="2" min="1" oninput="calculate()">
         </div>
         <div class="calc-group">
-          <label for="stunden">Dauer (in Stunden):</label>
+          <label>Dauer (in Stunden)</label>
           <input type="number" id="stunden" value="3" min="1" oninput="calculate()">
         </div>
-        <div class="calc-group">
-          <label for="satz">Stundensatz pro Kraft ($):</label>
-          <input type="number" id="satz" value="500" oninput="calculate()">
+
+        <div class="price-box">
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Geschätzter Gesamtwert</div>
+          <div class="price-display" id="total">$3.000</div>
+          <div style="font-size: 0.8rem; color: #fca5a5; margin-top: 5px;">Anzahlung (50%): <span id="anzahlung">$1.500</span></div>
         </div>
-        <hr style="border-color: var(--border); margin: 15px 0;">
-        <div style="text-align: center; font-size: 0.9rem; color: var(--text-muted);">Geschätzte Gesamtkosten:</div>
-        <div class="price-display" id="total">$3.000</div>
-        <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 10px;">
-          * 50% Vorauszahlung bei Einsatzbeginn erforderlich.
-        </p>
       </section>
 
-      <!-- Anfrage Formular -->
+      <!-- ANFRAGE-FORMULAR -->
       <section id="anfrage" class="card">
+        <div class="card-icon"><i class="fa-solid fa-paper-plane"></i></div>
         <h3>Einsatz Anfragen</h3>
-        <form onsubmit="alert('Anfrage abgesendet! Melde dich im Funk auf Channel Security HQ.'); return false;">
-          <input type="text" placeholder="Dein Name / Firma" required>
-          <input type="text" placeholder="Funk-Kanal / Telefonnummer" required>
-          <input type="text" placeholder="Einsatzort (z.B. Bank von Bremen)" required>
-          <textarea rows="4" placeholder="Kurze Beschreibung des Auftrags..." required></textarea>
-          <button type="submit">Anfrage Absenden</button>
+        <p style="margin-bottom: 20px;">Sende deine Einsatzanfrage direkt an unsere Leitstelle.</p>
+
+        <form id="discordForm">
+          <input type="text" id="name" placeholder="Name / Firma (z.B. Max Mustermann)" required>
+          <input type="text" id="kontakt" placeholder="Funk-Kanal / Telefonnummer" required>
+          <input type="text" id="ort" placeholder="Einsatzort (z.B. Bank von Bremen)" required>
+          <textarea id="nachricht" rows="4" placeholder="Auftragsdetails & Wünsche..." required></textarea>
+          <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Anfrage Jetzt Absenden</button>
         </form>
       </section>
 
@@ -123,18 +167,67 @@
   </div>
 
   <footer>
-    Bremen Security GmbH &bull; Nur für Roleplay-Zwecke (Bremen RP) &bull; HQ Funk-Kanal: Security HQ
+    <p>Bremen Security GmbH &bull; Offizieller Roleplay-Sicherheitsdienst (Bremen RP)</p>
+    <p style="margin-top: 5px; opacity: 0.5;">HQ Funk-Kanal: Security HQ | Vertreten durch Glen Meier</p>
   </footer>
 
   <script>
+    // Preisrechner Logik
     function calculate() {
-      const kraefte = document.getElementById('kraefte').value || 0;
-      const stunden = document.getElementById('stunden').value || 0;
-      const satz = document.getElementById('satz').value || 0;
+      const satz = parseFloat(document.getElementById('type').value) || 0;
+      const kraefte = parseInt(document.getElementById('kraefte').value) || 0;
+      const stunden = parseInt(document.getElementById('stunden').value) || 0;
       
-      const total = kraefte * stunden * satz;
+      const total = satz * kraefte * stunden;
+      const anzahlung = total * 0.5;
+
       document.getElementById('total').innerText = '$' + total.toLocaleString('de-DE');
+      document.getElementById('anzahlung').innerText = '$' + anzahlung.toLocaleString('de-DE');
     }
+
+    // Discord Webhook Anbindung
+    document.getElementById('discordForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // OPTIONAL: Ersetze diesen Link durch deinen echten Discord Webhook Link!
+      const WEBHOOK_URL = "HIER_DISCORD_WEBHOOK_URL_EINFUEGEN";
+
+      const name = document.getElementById('name').value;
+      const kontakt = document.getElementById('kontakt').value;
+      const ort = document.getElementById('ort').value;
+      const nachricht = document.getElementById('nachricht').value;
+
+      if (WEBHOOK_URL === "HIER_DISCORD_WEBHOOK_URL_EINFUEGEN") {
+        alert("Anfrage übermittelt! Bitte melde dich zusätzlich im Funk (Security HQ).");
+        return;
+      }
+
+      const payload = {
+        embeds: [{
+          title: "🚨 Neue Einsatzanfrage erhalten!",
+          color: 14428710,
+          fields: [
+            { name: "Auftraggeber", value: name, inline: true },
+            { name: "Kontakt / Funk", value: kontakt, inline: true },
+            { name: "Einsatzort", value: ort, inline: false },
+            { name: "Details", value: nachricht, inline: false }
+          ],
+          footer: { text: "Bremen Security Web-System" },
+          timestamp: new Date()
+        }]
+      };
+
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(() => {
+        alert("Deine Anfrage wurde direkt an unsere Discord-Leitstelle übermittelt!");
+        document.getElementById('discordForm').reset();
+      }).catch(() => {
+        alert("Fehler beim Senden. Bitte kontaktiere uns im Funk.");
+      });
+    });
   </script>
 </body>
 </html>
