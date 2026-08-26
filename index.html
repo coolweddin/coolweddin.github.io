@@ -3,244 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bremen Security GmbH | Enterprise Leitstellen- & Management-Portal</title>
+  <title>Bremen Security GmbH | Leitstand & Einsatzplanung</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg: #030508;
-      --card-bg: rgba(10, 15, 25, 0.9);
-      --card-hover: rgba(18, 25, 40, 0.95);
-      --accent: #dc2626;
-      --accent-glow: rgba(220, 38, 38, 0.4);
-      --accent-hover: #ef4444;
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(220, 38, 38, 0.4);
+      --bg: #07090e;
+      --card-bg: #0d121c;
+      --card-hover: #131a28;
+      --accent: #e11d48;
+      --accent-glow: rgba(225, 29, 72, 0.3);
+      --accent-hover: #f43f5e;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-accent: rgba(225, 29, 72, 0.4);
       --success: #22c55e;
-      --warning: #eab308;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; background-image: radial-gradient(circle at 50% 0%, #1a0b12 0%, var(--bg) 85%); min-height: 100vh; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif; scroll-behavior: smooth; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.7; background-image: radial-gradient(circle at 50% -20%, #1c0a13 0%, var(--bg) 75%); min-height: 100vh; }
 
-    .rp-warning-bar { background: #7f1d1d; color: #fca5a5; text-align: center; padding: 10px 15px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-bottom: 1px solid var(--accent); }
+    .rp-warning-bar { background: #4c0519; color: #fecdd3; text-align: center; padding: 10px 15px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border-bottom: 1px solid var(--accent); }
 
-    header { background: linear-gradient(180deg, rgba(15, 23, 42, 0.98) 0%, rgba(3, 5, 8, 0.95) 100%); border-bottom: 2px solid var(--accent); padding: 60px 20px 40px; text-align: center; position: relative; }
-    .badge { display: inline-block; background: rgba(220, 38, 38, 0.15); border: 1px solid var(--accent); color: var(--accent); font-weight: 700; font-size: 0.75rem; padding: 5px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
-    header h1 { font-size: 3.2rem; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; text-shadow: 0 0 30px var(--accent-glow); }
-    header p { color: var(--text-muted); font-size: 1.15rem; max-width: 700px; margin: 12px auto 0; }
+    header { background: linear-gradient(180deg, rgba(13, 18, 28, 0.98) 0%, rgba(7, 9, 14, 0.95) 100%); border-bottom: 2px solid var(--accent); padding: 70px 20px 50px; text-align: center; }
+    .badge { display: inline-block; background: rgba(225, 29, 72, 0.12); border: 1px solid var(--accent); color: var(--accent); font-weight: 700; font-size: 0.75rem; padding: 6px 18px; border-radius: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+    header h1 { font-size: 3.2rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
+    header p { color: var(--text-muted); font-size: 1.1rem; max-width: 750px; margin: 15px auto 0; }
 
-    nav { display: flex; justify-content: center; gap: 8px; background: rgba(5, 8, 15, 0.98); backdrop-filter: blur(12px); padding: 14px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; }
-    nav a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; padding: 6px 10px; border-radius: 6px; display: flex; align-items: center; gap: 6px; }
-    nav a:hover { color: var(--accent); background: rgba(220, 38, 38, 0.1); text-shadow: 0 0 10px var(--accent-glow); }
+    nav { display: flex; justify-content: center; gap: 6px; background: rgba(13, 18, 28, 0.98); backdrop-filter: blur(12px); padding: 12px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; }
+    nav a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; padding: 8px 14px; border-radius: 6px; display: flex; align-items: center; gap: 6px; }
+    nav a:hover { color: var(--accent); background: rgba(225, 29, 72, 0.1); }
 
-    .container { max-width: 1300px; margin: 40px auto; padding: 0 20px; }
+    .container { max-width: 1250px; margin: 40px auto; padding: 0 20px; }
     .section-head { text-align: center; margin-bottom: 40px; margin-top: 70px; }
-    .section-head h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; display: inline-block; border-bottom: 3px solid var(--accent); padding-bottom: 8px; }
-    .section-head p { color: var(--text-muted); font-size: 1rem; margin-top: 10px; }
+    .section-head h2 { font-size: 2.2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; display: inline-block; border-bottom: 3px solid var(--accent); padding-bottom: 8px; }
+    .section-head p { color: var(--text-muted); font-size: 1rem; max-width: 700px; margin: 12px auto 0; }
 
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 25px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(520px, 1fr)); gap: 30px; }
 
-    .card { background: var(--card-bg); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 12px; padding: 30px; transition: all 0.3s ease; position: relative; overflow: hidden; }
-    .card:hover { background: var(--card-hover); border-color: var(--border-accent); box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px var(--accent-glow); transform: translateY(-4px); }
-    .card-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 18px; }
-    .card h3 { font-size: 1.4rem; margin-bottom: 12px; font-weight: 700; color: #fff; }
-    .card p { color: var(--text-muted); font-size: 0.95rem; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 35px; transition: all 0.3s ease; position: relative; }
+    .card:hover { background: var(--card-hover); border-color: var(--border-accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .card-icon { font-size: 2.2rem; color: var(--accent); margin-bottom: 20px; }
+    .card h3 { font-size: 1.35rem; margin-bottom: 12px; font-weight: 700; color: #fff; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; }
+    .card ul { list-style: none; margin-top: 15px; }
+    .card ul li { font-size: 0.9rem; color: var(--text-muted); padding: 5px 0; display: flex; align-items: center; gap: 8px; }
+    .card ul li i { color: var(--accent); font-size: 0.75rem; }
 
     .stats-strip { display: flex; justify-content: space-around; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin: 40px 0; text-align: center; flex-wrap: wrap; gap: 20px; }
-    .stat-box h4 { font-size: 2.5rem; color: var(--accent); font-weight: 900; text-shadow: 0 0 15px var(--accent-glow); }
-    .stat-box p { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-top: 5px; }
+    .stat-box h4 { font-size: 2.2rem; color: var(--accent); font-weight: 900; }
+    .stat-box p { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-top: 5px; letter-spacing: 1px; }
 
-    .cert-box { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border); border-radius: 10px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
+    .cert-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
     .cert-box:hover { border-color: var(--accent); }
-    .cert-title { font-weight: 700; font-size: 1rem; margin-bottom: 15px; color: #e5e7eb; display: flex; align-items: center; gap: 10px; }
-    .cert-price-tag { font-weight: 900; color: var(--accent); font-size: 1.2rem; background: rgba(220, 38, 38, 0.1); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(220, 38, 38, 0.3); text-align: center; }
+    .cert-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .cert-desc { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px; }
+    .cert-price-tag { font-weight: 900; color: var(--accent); font-size: 1.1rem; background: rgba(225, 29, 72, 0.08); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(225, 29, 72, 0.2); text-align: center; }
 
-    .role-section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-top: 25px; }
-    .role-category { margin-bottom: 25px; }
+    .role-section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 35px; margin-top: 25px; }
+    .role-category { margin-bottom: 30px; }
     .role-category:last-child { margin-bottom: 0; }
-    .role-category h4 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .role-category h4 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; border-left: 3px solid var(--accent); padding-left: 10px; }
     .badge-list { display: flex; flex-wrap: wrap; gap: 10px; }
-    .discord-badge { background: #111827; border: 1px solid #374151; padding: 8px 14px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; color: #e5e7eb; }
+    .discord-badge { background: #07090e; border: 1px solid #1e293b; padding: 8px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px; color: #e2e8f0; }
 
     .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 8px; letter-spacing: 0.5px; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; background: rgba(5, 8, 15, 0.95); border: 1px solid var(--border); color: #fff; border-radius: 8px; font-size: 0.95rem; outline: none; transition: 0.3s; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
+    .form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; background: #07090e; border: 1px solid var(--border); color: #fff; border-radius: 8px; font-size: 0.95rem; outline: none; transition: 0.3s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
 
-    .price-box { background: rgba(220, 38, 38, 0.08); border: 1px dashed var(--accent); border-radius: 10px; padding: 25px; text-align: center; margin-top: 30px; }
-    .price-display { font-size: 2.8rem; font-weight: 900; color: var(--accent); text-shadow: 0 0 20px var(--accent-glow); }
+    .price-box { background: rgba(225, 29, 72, 0.06); border: 1px dashed var(--accent); border-radius: 10px; padding: 25px; text-align: center; margin-top: 25px; }
+    .price-display { font-size: 2.6rem; font-weight: 900; color: var(--accent); }
 
-    .btn-action { width: 100%; padding: 16px; background: var(--accent); color: #fff; border: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 8px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 25px var(--accent-glow); display: flex; justify-content: center; align-items: center; gap: 10px; font-size: 0.95rem; }
-    .btn-action:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+    .btn-action { width: 100%; padding: 16px; background: var(--accent); color: #fff; border: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 8px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 20px var(--accent-glow); display: flex; justify-content: center; align-items: center; gap: 10px; font-size: 0.95rem; }
+    .btn-action:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
-    .scenario-btn { background: rgba(15, 23, 42, 0.9); border: 1px solid var(--border); color: var(--text); padding: 10px 15px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-align: left; display: flex; justify-content: space-between; align-items: center; }
-    .scenario-btn:hover { border-color: var(--accent); background: rgba(220, 38, 38, 0.1); color: #fff; }
+    .scenario-btn { background: #07090e; border: 1px solid var(--border); color: var(--text); padding: 12px 15px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-align: left; display: flex; justify-content: space-between; align-items: center; }
+    .scenario-btn:hover { border-color: var(--accent); background: rgba(225, 29, 72, 0.08); color: #fff; }
 
-    .faq-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 15px; overflow: hidden; }
-    .faq-question { padding: 20px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem; }
-    .faq-question:hover { color: var(--accent); }
-    .faq-answer { padding: 0 20px 20px; color: var(--text-muted); font-size: 0.95rem; display: none; border-top: 1px solid var(--border); padding-top: 18px; }
+    .text-content-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 40px; margin-top: 40px; }
+    .text-content-box h3 { font-size: 1.4rem; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+    .text-content-box p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
 
-    .legal-box { background: rgba(15, 23, 42, 0.95); border: 1px solid #374151; border-radius: 12px; padding: 35px; margin-top: 70px; font-size: 0.9rem; color: var(--text-muted); }
+    .legal-box { background: #0b0f17; border: 1px solid #1e293b; border-radius: 12px; padding: 35px; margin-top: 70px; font-size: 0.9rem; color: var(--text-muted); }
     .legal-box h3 { color: #fff; margin-bottom: 15px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
 
-    footer { text-align: center; padding: 50px 20px; font-size: 0.9rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 70px; background: #020305; }
+    footer { text-align: center; padding: 50px 20px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 70px; background: #040609; }
   </style>
 </head>
 <body>
 
   <div class="rp-warning-bar">
-    <i class="fa-solid fa-triangle-exclamation"></i> Roleplay-Disclaimer: Fiktives Unternehmen im Rahmen des GTA-RP-Servers "Bremen RP".
+    <i class="fa-solid fa-triangle-exclamation"></i> Offizielles Roleplay-Portal &bull; Projekt im Rahmen des GTA-RP-Servers "Bremen RP"
   </div>
 
   <header>
-    <div class="badge"><i class="fa-solid fa-shield-halved"></i> Enterprise Leitstellen-Portal</div>
+    <div class="badge"><i class="fa-solid fa-shield-halved"></i> Leitstand & Operations Center</div>
     <h1>Bremen Security GmbH</h1>
-    <p>Elite-Objektschutz, taktische Krisenintervention und hochqualifizierter Personenschutz in Bremen RP.</p>
+    <p>Elite-Objektschutz, taktische Krisenintervention, Konvoi-Begleitung und hochqualifizierter Personenschutz nach strengsten operativen Standards.</p>
   </header>
 
   <nav>
-    <a href="#about"><i class="fa-solid fa-building"></i> Über Uns</a>
-    <a href="#features"><i class="fa-solid fa-bolt"></i> 12 Live-Tools</a>
-    <a href="#rangstruktur"><i class="fa-solid fa-sitemap"></i> Rollen & Kader</a>
-    <a href="#certs"><i class="fa-solid fa-certificate"></i> Zertifikate</a>
+    <a href="#philosophie"><i class="fa-solid fa-book-open"></i> Philosophie</a>
+    <a href="#leistungen"><i class="fa-solid fa-shield"></i> Leistungsportfolio</a>
+    <a href="#rangstruktur"><i class="fa-solid fa-sitemap"></i> Kader & Struktur</a>
+    <a href="#certs"><i class="fa-solid fa-certificate"></i> Honorare & Lizenzen</a>
     <a href="#rechner"><i class="fa-solid fa-calculator"></i> Kombi-Rechner</a>
-    <a href="#anfrage"><i class="fa-solid fa-paper-plane"></i> Dispatch</a>
-    <a href="#faq"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+    <a href="#anfrage"><i class="fa-solid fa-paper-plane"></i> Anfrage stellen</a>
     <a href="#impressum"><i class="fa-solid fa-scale-balanced"></i> Impressum</a>
   </nav>
 
   <div class="container">
 
     <div class="stats-strip">
-      <div class="stat-box"><h4>24/7</h4><p>Leitstelle im Dienst</p></div>
-      <div class="stat-box"><h4>$500 - $1.500</h4><p>Stundensatz / Kraft</p></div>
-      <div class="stat-box"><h4>12</h4><p>Interaktive Module</p></div>
-      <div class="stat-box"><h4>100%</h4><p>Bremen RP Konform</p></div>
+      <div class="stat-box"><h4>24/7</h4><p>Ständige Leitstellen-Präsenz</p></div>
+      <div class="stat-box"><h4>$500 - $1.500</h4><p>Qualifizierte Stundensätze</p></div>
+      <div class="stat-box"><h4>100%</h4><p>Taktische RP-Konformität</p></div>
+      <div class="stat-box"><h4>50%</h4><p>Standardisierte Vorauszahlung</p></div>
     </div>
 
-    <!-- 12 INTERAKTIVE FEATURES -->
-    <section id="features">
-      <div class="section-head">
-        <h2>12 Interaktive Leitstellen-Tools</h2>
-        <p>Erweiterte digitale Applikationen für Klienten, externe Partner und Einsatzkräfte.</p>
-      </div>
-
-      <div class="grid-4">
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-calculator"></i></div>
-          <h3>1. Kombi-Rechner</h3>
-          <p style="font-size: 0.85rem;">Multi-Spezialisten & Szenarien-Kalkulation.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="location.href='#rechner'">Zum Rechner</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-paper-plane"></i></div>
-          <h3>2. Discord-Dispatch</h3>
-          <p style="font-size: 0.85rem;">Direkter Webhook-Versand an die HQ-Leitstelle.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="location.href='#anfrage'">Dispatch Senden</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-shield-dog"></i></div>
-          <h3>3. Risikolevel-Prüfer</h3>
-          <p style="font-size: 0.85rem;">Ermittle automatisch die benötigte Schutzstufe.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="checkRiskLevel()">Stufe Prüfen</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-file-contract"></i></div>
-          <h3>4. Vertrags-Generator</h3>
-          <p style="font-size: 0.85rem;">Generiere eine digitale Auftragsvereinbarung.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="generateContract()">Vertrag Erstellen</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-clock-rotate-left"></i></div>
-          <h3>5. Schichtzeiten-Rechner</h3>
-          <p style="font-size: 0.85rem;">Berechne den Verdienst für Timesheets.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="openTimesheetCalc()">Timesheet Tool</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-bullhorn"></i></div>
-          <h3>6. Notfall-Alarm</h3>
-          <p style="font-size: 0.85rem;">Löse einen simulierten Panikalarm im HQ aus.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem; background:#7f1d1d;" onclick="triggerPanicAlarm()">Panik-Alarm</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-user-check"></i></div>
-          <h3>7. Zertifikats-Checker</h3>
-          <p style="font-size: 0.85rem;">Prüfe, welche Rolle welche Bezahlung erhält.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="location.href='#certs'">Einsehen</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-user-plus"></i></div>
-          <h3>8. Karriere-Check</h3>
-          <p style="font-size: 0.85rem;">Infos zu Voraussetzungen für neue Mitarbeiter.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="alert('Bewerbungen direkt über den Bremen RP Discord einreichen!')">Bewerben</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-headset"></i></div>
-          <h3>9. Funk-Frequenz</h3>
-          <p style="font-size: 0.85rem;">Schnell-Kopie der primären Einsatzfrequenz.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="copyFrequency()">Frequenz Kopieren</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-shield-halved"></i></div>
-          <h3>10. Ausrüstungs-Info</h3>
-          <p style="font-size: 0.85rem;">Übersicht über zugelassene Waffen & TASER.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="alert('Zugelassen: Dienstwaffen, Schutzwesten & TASER-Zertifizierung.')">Details</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-          <h3>11. Anzahlungs-Rechner</h3>
-          <p style="font-size: 0.85rem;">Berechne sofort die obligatorischen 50% Vorauszahlung.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="location.href='#rechner'">Berechnen</button>
-        </div>
-        <div class="card" style="padding: 22px;">
-          <div class="card-icon" style="font-size: 1.6rem;"><i class="fa-solid fa-id-badge"></i></div>
-          <h3>12. ID-Verification</h3>
-          <p style="font-size: 0.85rem;">Simulation einer Klienten-Legitimationsprüfung.</p>
-          <button class="btn-action" style="margin-top:15px; padding: 9px; font-size: 0.75rem;" onclick="verifyClient()">ID Prüfen</button>
-        </div>
+    <!-- PHILOSOPHIE & TEXTSECTION -->
+    <section id="philosophie">
+      <div class="text-content-box">
+        <h3><i class="fa-solid fa-building-shield" style="color:var(--accent);"></i> Unternehmensphilosophie & Operativer Auftrag</h3>
+        <p>
+          Die Bremen Security GmbH steht im virtuellen Kosmos von Bremen RP für absolute Zuverlässigkeit, taktische Disziplin und unbedingte Professionalität im Sicherheitsgewerbe. Unser Unternehmen wurde mit der Prämisse gegründet, staatliche Organe bei Engpässen zu entlasten und zivile sowie gewerbliche Klienten vor den realen Gefahren des Stadtlebens zu schützen. Ob Juwelier-Absicherung, Personenschutz für hochrangige Persönlichkeiten aus Wirtschaft und Politik oder diskrete Eskorten – wir agieren stets nach klar definierten, militärisch und polizeilich inspirierten Einsatzregeln (Rules of Engagement).
+        </p>
+        <p>
+          Jeder Mitarbeiter durchläuft bei uns strenge interne Überprüfungen und praktische Einweisungen, bevor er den aktiven Dienst antreten darf. Unsere Einsatzkräfte sind im Umgang mit modernsten Schutzwesten, zugelassekten Dienstwaffen und taktischen Kommunikationsmitteln lückenlos geschult. Durch strukturierte Hierarchien und permanente Funkbereitschaft über unsere HQ-Leitstelle garantieren wir im Ernstfall sekundenschnelle Reaktionszeiten und koordinierte Interventionen.
+        </p>
       </div>
     </section>
 
-    <!-- ÜBER UNS -->
-    <section id="about">
+    <!-- LEISTUNGSPROFIL -->
+    <section id="leistungen">
       <div class="section-head">
-        <h2>Über die Bremen Security GmbH</h2>
-        <p>Professioneller Objektschutz und Sicherheitsdienste für Unternehmen und VIPs in Bremen RP.</p>
+        <h2>Taktisches Leistungsportfolio</h2>
+        <p>Präzise auf die Gefährdungslage in Bremen RP abgestimmte Sicherheitslösungen.</p>
       </div>
+
       <div class="grid-3">
         <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-building-shield"></i></div>
+          <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
           <h3>Objekt- & Waffenschutz</h3>
-          <p>Sicherung von Hochsicherheitsarealen, Juwelieren und Banken mit strenger Waffenzulassung und zertifiziertem Wachpersonal.</p>
+          <p>Umfassende Absicherung von Hochsicherheitsrisiken, Banken, Juwelieren und Firmengeländen durch bewaffnetes Wachpersonal.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Zugangskontrollen & ID-Prüfungen</li>
+            <li><i class="fa-solid fa-check"></i> Streifendienst & Perimeter-Sicherung</li>
+            <li><i class="fa-solid fa-check"></i> Bewaffnete Interventionsbereitschaft</li>
+          </ul>
         </div>
         <div class="card">
           <div class="card-icon"><i class="fa-solid fa-user-shield"></i></div>
-          <h3>VIP & Personenschutz</h3>
-          <p>Geprüfter Personenschutz für Führungskräfte, Politiker und Prominente mit spezieller VIP-Zertifizierung ($1.500/Std).</p>
+          <h3>VIP- & Personenschutz</h3>
+          <p>Diskreter und hochprofessioneller Schutz für gefährdete Einzelpersonen, Vorstandsvorsitzende und prominente Gäste.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Enger Begleitschutz (Close Protection)</li>
+            <li><i class="fa-solid fa-check"></i> Routen-Vorauserkundung</li>
+            <li><i class="fa-solid fa-check"></i> Zertifizierte VIP-Spezialisten</li>
+          </ul>
         </div>
         <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-          <h3>Krisenmanagement</h3>
-          <p>Taktisches Eingreifen, Geiselverhandlungen und Konfliktlösung durch geschulte Abschnittsleiter und Krisenstäbe.</p>
+          <div class="card-icon"><i class="fa-solid fa-car-side"></i></div>
+          <h3>Konvoi- & Fahrzeugschutz</h3>
+          <p>Taktische Absicherung von Werttransporten und Fahrzeugkolonnen gegen Überfälle im Stadtgebiet und auf Autobahnen.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Begleitfahrzeuge (Lead & Tail)</li>
+            <li><i class="fa-solid fa-check"></i> Ausweichmanöver & Blockadetaktik</li>
+            <li><i class="fa-solid fa-check"></i> Direkter Funkkontakt zur Leitstelle</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- RANGSTRUKTUR & ROLLEN (DISCORD) -->
+    <!-- DISCORD RANGSTRUKTUR -->
     <section id="rangstruktur">
       <div class="section-head">
-        <h2>Discord-Rollen & Rangstruktur</h2>
-        <p>Unsere Hierarchie im Server (Hinweis: Das <span style="color:var(--accent); font-weight:700;">BS | High Team</span> agiert streng intern und ist auf der Website nicht öffentlich aufgeschlüsselt).</p>
+        <h2>Discord-Rollen & Hierarchie</h2>
+        <p>Unsere Organisationsstruktur im Server. (Das interne BS | High Team agiert streng vertraulich im Hintergrund).</p>
       </div>
 
       <div class="role-section">
         <div class="role-category">
-          <h4>Geschäftsführung</h4>
+          <h4>Geschäftsführung & Direktion</h4>
           <div class="badge-list">
             <span class="discord-badge"><i class="fa-solid fa-circle" style="color:#22c55e;"></i> Geschäftsführer (1)</span>
             <span class="discord-badge"><i class="fa-solid fa-circle" style="color:#22c55e;"></i> 2. Geschäftsführer*in</span>
@@ -249,77 +195,96 @@
         </div>
 
         <div class="role-category">
-          <h4>Bezirks- & Abschnittsleitung</h4>
+          <h4>Management & Führungsebene</h4>
           <div class="badge-list">
-            <span class="discord-badge"><i class="fa-solid fa-star" style="color:#14b8a6;"></i> Bezirksmanager*in</span>
-            <span class="discord-badge"><i class="fa-solid fa-star" style="color:#14b8a6;"></i> Abschnittsmanager*in</span>
-            <span class="discord-badge"><i class="fa-solid fa-user-gear" style="color:#3b82f6;"></i> Abschnittsleiter*in</span>
-            <span class="discord-badge"><i class="fa-solid fa-user-gear" style="color:#3b82f6;"></i> Schichtleiter*in</span>
-            <span class="discord-badge"><i class="fa-solid fa-user-gear" style="color:#3b82f6;"></i> Team Leiter*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-star" style="color:#38bdf8;"></i> Bezirksmanager*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-star" style="color:#38bdf8;"></i> Abschnittsmanager*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-user-gear" style="color:#38bdf8;"></i> Abschnittsleiter*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-user-gear" style="color:#38bdf8;"></i> Schichtleiter*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-user-gear" style="color:#38bdf8;"></i> Team Leiter*in</span>
           </div>
         </div>
 
         <div class="role-category">
-          <h4>Spezial- & Einsatzrollen</h4>
+          <h4>Spezial- & Einsatzkräfte</h4>
           <div class="badge-list">
             <span class="discord-badge"><i class="fa-solid fa-magnifying-glass" style="color:#eab308;"></i> Interne*r Ermittlungsleiter*in</span>
             <span class="discord-badge"><i class="fa-solid fa-briefcase" style="color:#eab308;"></i> Sales / Kunden Verwaltung</span>
             <span class="discord-badge"><i class="fa-solid fa-user-tie" style="color:#3b82f6;"></i> Leitende*r Sicherheitsbeauftragte*r</span>
             <span class="discord-badge"><i class="fa-solid fa-user-shield" style="color:#22c55e;"></i> Sicherheitsmitarbeiter*in im Dienst</span>
-            <span class="discord-badge"><i class="fa-solid fa-users" style="color:#9ca3af;"></i> Klienten / Auftraggeber</span>
+            <span class="discord-badge"><i class="fa-solid fa-users" style="color:#94a3b8;"></i> Klienten / Auftraggeber</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ZERTIFIKATE & STUNDENSÄTZE -->
+    <!-- ZERTIFIKATE & HONORARE -->
     <section id="certs">
       <div class="section-head">
-        <h2>Zertifizierungen & Vergütung</h2>
-        <p>Die Bezahlung pro Kraft richtet sich exakt nach den erworbenen Zertifikaten.</p>
+        <h2>Zertifizierungen & Stundensätze</h2>
+        <p>Die Vergütung unserer Einsatzkräfte basiert transparent auf nachgewiesenen Fachqualifikationen.</p>
       </div>
 
       <div class="grid-3">
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-award" style="color:#eab308;"></i> VIP-Personenschutz</div>
+          <div>
+            <div class="cert-title"><i class="fa-solid fa-award" style="color:#eab308;"></i> VIP-Personenschutz</div>
+            <div class="cert-desc">Ausbildung für hochgefährdete Personen, Nahkampf, Evakuierungstaktik und diskrete Eskorten.</div>
+          </div>
           <div class="cert-price-tag">$1.500 / Std</div>
         </div>
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Krisenmanagement</div>
+          <div>
+            <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Krisenmanagement</div>
+            <div class="cert-desc">Spezialisiert auf Geiselnahmen, Krisenverhandlungen, Deeskalation und bewaffnete Großeinsätze.</div>
+          </div>
           <div class="cert-price-tag">$1.000 / Std</div>
         </div>
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Risikobewertung & -management</div>
+          <div>
+            <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Crowd Control</div>
+            <div class="cert-desc">Massensteuerung, Einlasskontrolle bei Großveranstaltungen, Clubs und Events.</div>
+          </div>
           <div class="cert-price-tag">$1.000 / Std</div>
         </div>
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Crowd Control</div>
+          <div>
+            <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Risikobewertung & -management</div>
+            <div class="cert-desc">Analytische Erfassung von Gefahrenpotenzialen an Objekten und Ausarbeitung von Schutzkonzepten.</div>
+          </div>
           <div class="cert-price-tag">$1.000 / Std</div>
         </div>
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-car-side" style="color:#3b82f6;"></i> Fahrzeugschutz</div>
+          <div>
+            <div class="cert-title"><i class="fa-solid fa-car-side" style="color:#3b82f6;"></i> Fahrzeugschutz</div>
+            <div class="cert-desc">Taktische Kolonnenfahrt, Absicherung von Transporten und Fahrzeugüberwachung.</div>
+          </div>
           <div class="cert-price-tag">$750 / Std</div>
         </div>
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-user-check" style="color:#22c55e;"></i> Standard Sicherheitsdienstleister*innen</div>
+          <div>
+            <div class="cert-title"><i class="fa-solid fa-user-check" style="color:#22c55e;"></i> Standard Sicherheitsdienst</div>
+            <div class="cert-desc">Grundausbildung für Streifendienst, Pförtnerdienste und allgemeine Objektbewachung.</div>
+          </div>
           <div class="cert-price-tag">$500 / Std</div>
         </div>
       </div>
     </section>
 
-    <!-- ERWEITERTER KOMBI-RECHNER & ANFRAGE -->
+    <!-- RECHNER & ANFRAGE (2-GRID) -->
     <div class="grid-2" style="margin-top: 60px;">
       
+      <!-- KOMBI-RECHNER -->
       <section id="rechner" class="card">
         <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
         <h3>Multi-Spezialisten Kombi-Rechner</h3>
-        <p style="margin-bottom: 20px;">Wählen Sie vordefinierte RP-Szenarien oder stellen Sie Ihr Spezialisten-Team individuell zusammen.</p>
+        <p>Kombinieren Sie verschiedene Spezialisten oder laden Sie vordefinierte Einsatzszenarien für Ihre Planung.</p>
         
-        <div class="form-group">
+        <div class="form-group" style="margin-top: 20px;">
           <label>Vordefinierte RP-Szenarien laden</label>
           <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px;">
             <button type="button" class="scenario-btn" onclick="loadScenario('bank')">
-              <span><i class="fa-solid fa-building-columns" style="color:var(--accent);"></i> Banküberfall-Absicherung (2 Krise, 4 Standard)</span>
+              <span><i class="fa-solid fa-building-columns" style="color:var(--accent);"></i> Banküberfall-Absicherung (2 Krisenm., 4 Standard)</span>
               <span style="font-size:0.75rem; color:var(--text-muted);">2 Std</span>
             </button>
             <button type="button" class="scenario-btn" onclick="loadScenario('vip')">
@@ -327,7 +292,7 @@
               <span style="font-size:0.75rem; color:var(--text-muted);">4 Std</span>
             </button>
             <button type="button" class="scenario-btn" onclick="loadScenario('event')">
-              <span><i class="fa-solid fa-users" style="color:#22c55e;"></i> Groß-Event / Club Opening (1 Krisenm., 5 Crowd, 6 Standard)</span>
+              <span><i class="fa-solid fa-users" style="color:#22c55e;"></i> Club Opening (1 Krisenm., 5 Crowd, 6 Standard)</span>
               <span style="font-size:0.75rem; color:var(--text-muted);">5 Std</span>
             </button>
           </div>
@@ -364,83 +329,62 @@
         </div>
 
         <div class="price-box">
-          <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Gesamtsumme Kombi-Auftrag</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Gesamtsumme Auftrag</div>
           <div class="price-display" id="combo_total">$3.000</div>
-          <div style="font-size: 0.9rem; color: #fca5a5; margin-top: 10px; font-weight: 700;">
-            Erforderliche Vorauszahlung (50%): <span id="combo_anzahlung">$1.500</span>
+          <div style="font-size: 0.85rem; color: #fecdd3; margin-top: 8px; font-weight: 600;">
+            Obligatorische Vorauszahlung (50%): <span id="combo_anzahlung">$1.500</span>
           </div>
         </div>
       </section>
 
+      <!-- ANFRAGE STELLEN (FORMULAR) -->
       <section id="anfrage" class="card">
         <div class="card-icon"><i class="fa-solid fa-paper-plane"></i></div>
-        <h3>Discord Webhook Dispatcher</h3>
-        <p style="margin-bottom: 20px;">Übertragen Sie den Auftrag inklusive gewählter Team-Kombination direkt in den Discord-Leitstellenkanal.</p>
+        <h3>Anfrage stellen</h3>
+        <p>Übermitteln Sie Ihre Team-Kalkulation und Objektdaten direkt an den Leitstellen-Webhook für einen zeitnahen Einsatz.</p>
 
-        <form id="discordForm">
+        <form id="discordForm" style="margin-top: 20px;">
           <div class="form-group">
             <label>Name / Auftraggeber</label>
             <input type="text" id="name" placeholder="z.B. Max Mustermann" required>
           </div>
           <div class="form-group">
             <label>Funk-Kanal / Kontakt</label>
-            <input type="text" id="kontakt" placeholder="z.B. Funk Ch. 12" required>
+            <input type="text" id="kontakt" placeholder="z.B. Funk Ch. 12 oder Telefonnummer" required>
           </div>
           <div class="form-group">
             <label>Einsatzort / Objekt</label>
-            <input type="text" id="ort" placeholder="z.B. Bank von Bremen" required>
+            <input type="text" id="ort" placeholder="z.B. Bank von Bremen / Vinewood Blvd" required>
           </div>
           <div class="form-group">
-            <label>Auftragsdetails & Szenario</label>
-            <textarea id="nachricht" rows="3" placeholder="Zusatzinfos zum Team-Einsatz..." required></textarea>
+            <label>Auftragsdetails & Szenario-Beschreibung</label>
+            <textarea id="nachricht" rows="4" placeholder="Spezifische Anforderungen, Uhrzeit, besondere Risiken..." required></textarea>
           </div>
-          <button type="submit" class="btn-action"><i class="fa-solid fa-paper-plane"></i> An Discord Senden</button>
+          <button type="submit" class="btn-action"><i class="fa-solid fa-paper-plane"></i> An Leitstelle Senden</button>
         </form>
       </section>
 
     </div>
 
-    <!-- FAQ -->
-    <section id="faq">
-      <div class="section-head">
-        <h2>Häufig gestellte Fragen</h2>
-        <p>Wichtige Details zum Ablauf und den Sicherheitsrichtlinien.</p>
-      </div>
-      <div style="max-width: 850px; margin: 0 auto;">
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Wie funktioniert die Anzahlung? <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="faq-answer">Vor Einsatzbeginn müssen 50% der Gesamtsumme entrichtet werden[cite: 1]. Der Restbetrag wird nach Beendigung abgerechnet.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Sind die eingesetzten Kräfte bewaffnet? <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="faq-answer">Ja, entsprechend ihrer Waffenzulassung und den jeweiligen Zertifizierungen im Sicherheitsbereich von Bremen RP[cite: 2].</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Ist das ein echtes Unternehmen? <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="faq-answer">Nein, es handelt sich ausschließlich um ein fiktives Projekt für den GTA-RP-Server "Bremen RP"[cite: 3].</div>
-        </div>
-      </div>
-    </section>
-
     <!-- IMPRESSUM / RP DISCLAIMER -->
     <section id="impressum" class="legal-box">
       <h3><i class="fa-solid fa-scale-balanced" style="color:var(--accent);"></i> Impressum & Rechtlicher Hinweis (Roleplay Disclaimer)</h3>
       <p style="margin-bottom: 12px;">
-        <strong>Haftungsausschluss:</strong> Diese Website, die Formulare sowie alle ausgestellten Dokumente, Rechnungen und Quittungen sind rein fiktiv und existieren ausschließlich im Rahmen des virtuellen Online-Rollenspiels (GTA RP) auf dem Server <strong>Bremen RP</strong>[cite: 3].
+        <strong>Haftungsausschluss:</strong> Diese Website, alle integrierten Formulare, Berechnungen und Dokumente sind rein fiktiv und existieren ausschließlich im Rahmen des virtuellen Online-Rollenspiels (GTA RP) auf dem Server <strong>Bremen RP</strong>.
       </p>
       <p style="margin-bottom: 12px;">
-        Es besteht keinerlei kommerzielle Absicht oder Verbindung zu echten Sicherheitsunternehmen oder Behörden. Alle genannten Beträge ($) sind Spielwährung[cite: 3]. Interne Bereiche wie das *BS | High Team* sind vom Webauftritt ausgenommen und verbleiben exklusiv im geschützten Discord-Bereich.
+        Es besteht keinerlei kommerzielle Absicht, geschäftliche Verbindung zu echten Sicherheitsdienstleistern oder Behörden. Sämtliche angegebenen Währungsbeträge ($) stellen ausschliesslich virtuelle Spielwährung dar. Interne Abschnitte wie das *BS | High Team* sind vom öffentlichen Webauftritt ausgenommen und verbleiben exklusiv im geschützten Discord-Bereich der Fraktion.
       </p>
       <p>
-        <strong>Verantwortlich (RP):</strong> Geschäftsführung der Bremen Security GmbH, Bremen RP[cite: 3].
+        <strong>Verantwortlich (In-Character):</strong> Geschäftsführung der Bremen Security GmbH, Bremen RP.
       </p>
     </section>
 
   </div>
 
   <footer>
-    <p><strong>Bremen Security GmbH</strong> &bull; Offizieller RP-Sicherheitsdienst &bull; Bremen RP[cite: 3]</p>
-    <p style="margin-top: 8px; opacity: 0.5;">HQ Funk-Kanal: Security HQ &bull; Enterprise Portal v10.0</p>
+    <p><strong>Bremen Security GmbH</strong> &bull; Offizieller RP-Sicherheitsdienst &bull; Bremen RP</p>
+    <p style="margin-top: 6px; opacity: 0.5;">HQ Leitstelle &bull; Enterprise Portal v12.4</p>
   </footer>
 
   <script>
@@ -484,63 +428,14 @@
         document.getElementById('count_fahrzeug').value = 0;
         document.getElementById('count_standard').value = 6;
         document.getElementById('combo_stunden').value = 5;
-        document.getElementById('nachricht').value = "Szenario geladen: Groß-Event / Club Opening (1 Krise, 5 Crowd, 6 Standard, 5 Std)";
+        document.getElementById('nachricht').value = "Szenario geladen: Club Opening (1 Krisenm., 5 Crowd, 6 Standard, 5 Std)";
       }
       calculateCombo();
     }
 
-    function toggleFaq(element) {
-      const answer = element.nextElementSibling;
-      const icon = element.querySelector('i');
-      if (answer.style.display === "block") {
-        answer.style.display = "none";
-        icon.className = "fa-solid fa-chevron-down";
-      } else {
-        answer.style.display = "block";
-        icon.className = "fa-solid fa-chevron-up";
-      }
-    }
-
-    function checkRiskLevel() {
-      const levels = ["Geringes Risiko (Standard-Objektschutz)", "Mittleres Risiko (Konvoi & Crowd Control empfohlen)", "Hohes Risiko (Krisenmanagement & VIP-Schutz erforderlich)"];
-      const randomLevel = levels[Math.floor(Math.random() * levels.length)];
-      alert("Ergebnis der Risiko-Analyse: " + randomLevel);
-    }
-
-    function generateContract() {
-      const client = prompt("Name des Klienten für den Vertrag:", "Max Mustermann");
-      if (client) {
-        alert("Offizieller RP-Sicherheitsvertrag für " + client + " erfolgreich generiert und im System hinterlegt!");
-      }
-    }
-
-    function openTimesheetCalc() {
-      const stunden = prompt("Gib deine Schichtstunden ein:", "4");
-      const satz = prompt("Stundensatz deiner Rolle (z.B. 500, 1000):", "500");
-      if (stunden && satz) {
-        const lohn = parseInt(stunden) * parseInt(satz);
-        alert("Berechneter Timesheet-Verdienst: $" + lohn.toLocaleString('de-DE') + " (Bitte im Timesheet-Bot einreichen).");
-      }
-    }
-
-    function triggerPanicAlarm() {
-      if (confirm("Möchtest du einen simulierten Panikalarm an das HQ senden?")) {
-        alert("🚨 PANIKALARM AKTIVIERT! Alle Einheiten in Bereitschaft versetzt!");
-      }
-    }
-
-    function copyFrequency() {
-      navigator.clipboard.writeText("Security HQ - Frequenz 12.5 MHz");
-      alert("Funk-Frequenz 'Security HQ - 12.5 MHz' in die Zwischenablage kopiert!");
-    }
-
-    function verifyClient() {
-      alert("ID-Verification: Klient hat gültige Aufenthaltsgenehmigung in Bremen RP[cite: 3]. Status: Verifiziert.");
-    }
-
     document.getElementById('discordForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const WEBHOOK_URL = "HIER_DISCORD_WEBHOOK_URL_EINFUEGEN";
+      const WEBHOOK_URL = "https://ptb.discord.com/api/webhooks/1542276906513338368/kgWAOVMije4TspGb3d_XHItbJTJuXi-E4cFK0W7qHj3Ui881kk9EShfzMVIIloly78Hk";
       const name = document.getElementById('name').value;
       const kontakt = document.getElementById('kontakt').value;
       const ort = document.getElementById('ort').value;
@@ -548,23 +443,18 @@
       const total = document.getElementById('combo_total').innerText;
       const anzahlung = document.getElementById('combo_anzahlung').innerText;
 
-      if (WEBHOOK_URL === "HIER_DISCORD_WEBHOOK_URL_EINFUEGEN") {
-        alert("Achtung: Bitte trage noch deinen echten Discord-Webhook-Link im Skript ein, damit die Daten ankommen.");
-        return;
-      }
-
       const payload = {
         embeds: [{
-          title: "Multi-Spezialisten Anfrage (Web-Portal)",
-          color: 14428710,
+          title: "🚨 Neue Offizielle Einsatzanfrage (Web-Portal)",
+          color: 14737666,
           fields: [
-            { name: "Klient", value: name, inline: true },
+            { name: "Auftraggeber", value: name, inline: true },
             { name: "Kontakt / Funk", value: kontakt, inline: true },
             { name: "Einsatzort", value: ort, inline: false },
-            { name: "Team-Kalkulation", value: `Gesamt: ${total} | Anzahlung (50%): ${anzahlung}`, inline: false },
+            { name: "Kalkulation", value: `Gesamtsumme: ${total} | Vorauszahlung (50%): ${anzahlung}`, inline: false },
             { name: "Details / Szenario", value: nachricht, inline: false }
           ],
-          footer: { text: "Bremen Security System" },
+          footer: { text: "Bremen Security Leitstelle - Dispatch System" },
           timestamp: new Date()
         }]
       };
@@ -574,10 +464,10 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       }).then(() => {
-        alert("Anfrage wurde erfolgreich an die Discord-Leitstelle übermittelt!");
+        alert("Ihre Anfrage wurde erfolgreich an die Leitstelle übermittelt!");
         document.getElementById('discordForm').reset();
       }).catch(() => {
-        alert("Fehler beim Übertragen an den Discord-Webhook.");
+        alert("Fehler beim Übertragen der Daten an den Discord-Webhook.");
       });
     });
 
