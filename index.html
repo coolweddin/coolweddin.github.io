@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bremen Security GmbH | Offizielles Leitstellen-Portal</title>
+  <title>Bremen Security GmbH | Ultimatives Leitstellen- & Management-Portal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg: #070a10;
-      --card-bg: rgba(17, 24, 39, 0.75);
-      --card-hover: rgba(30, 41, 59, 0.9);
+      --bg: #05070b;
+      --card-bg: rgba(13, 18, 30, 0.85);
+      --card-hover: rgba(22, 30, 48, 0.95);
       --accent: #dc2626;
-      --accent-glow: rgba(220, 38, 38, 0.35);
+      --accent-glow: rgba(220, 38, 38, 0.4);
       --accent-hover: #ef4444;
       --text: #f3f4f6;
       --text-muted: #9ca3af;
@@ -20,256 +20,346 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; background-image: radial-gradient(circle at 50% 0%, #1c1018 0%, var(--bg) 80%); min-height: 100vh; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; background-image: radial-gradient(circle at 50% 0%, #1a0b12 0%, var(--bg) 85%); min-height: 100vh; }
 
-    /* RP WARNUNG / DISCLAIMER BANNER */
     .rp-warning-bar { background: #7f1d1d; color: #fca5a5; text-align: center; padding: 8px 15px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--accent); }
 
-    /* HEADER */
-    header { background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(7, 10, 16, 0.9) 100%); border-bottom: 2px solid var(--accent); padding: 50px 20px 35px; text-align: center; position: relative; }
+    header { background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(5, 7, 11, 0.9) 100%); border-bottom: 2px solid var(--accent); padding: 50px 20px 35px; text-align: center; position: relative; }
     .badge { display: inline-block; background: rgba(220, 38, 38, 0.15); border: 1px solid var(--accent); color: var(--accent); font-weight: 700; font-size: 0.75rem; padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
     header h1 { font-size: 3rem; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; text-shadow: 0 0 25px var(--accent-glow); }
     header p { color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 10px auto 0; }
 
-    /* NAVIGATION */
-    nav { display: flex; justify-content: center; gap: 15px; background: rgba(11, 15, 23, 0.95); backdrop-filter: blur(12px); padding: 14px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; }
-    nav a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; display: flex; align-items: center; gap: 6px; }
+    nav { display: flex; justify-content: center; gap: 12px; background: rgba(7, 11, 19, 0.95); backdrop-filter: blur(12px); padding: 14px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; }
+    nav a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; display: flex; align-items: center; gap: 5px; }
     nav a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
 
-    /* MAIN CONTAINER & SECTIONS */
-    .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+    .container { max-width: 1250px; margin: 40px auto; padding: 0 20px; }
     .section-head { text-align: center; margin-bottom: 35px; margin-top: 60px; }
     .section-head h2 { font-size: 2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; display: inline-block; border-bottom: 3px solid var(--accent); padding-bottom: 5px; }
     .section-head p { color: var(--text-muted); font-size: 0.95rem; margin-top: 8px; }
 
-    /* GRIDS */
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 25px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 25px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
 
-    /* CARDS */
     .card { background: var(--card-bg); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 12px; padding: 30px; transition: all 0.3s ease; position: relative; overflow: hidden; }
     .card:hover { background: var(--card-hover); border-color: var(--border-accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px var(--accent-glow); transform: translateY(-3px); }
     .card-icon { font-size: 2.2rem; color: var(--accent); margin-bottom: 15px; }
     .card h3 { font-size: 1.3rem; margin-bottom: 10px; font-weight: 700; color: #fff; }
     .card p { color: var(--text-muted); font-size: 0.95rem; }
 
-    /* STATS STRIP */
     .stats-strip { display: flex; justify-content: space-around; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 25px; margin: 40px 0; text-align: center; flex-wrap: wrap; gap: 20px; }
     .stat-box h4 { font-size: 2.2rem; color: var(--accent); font-weight: 900; text-shadow: 0 0 15px var(--accent-glow); }
     .stat-box p { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
 
-    /* CERTIFICATE GRID ITEMS */
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-    .cert-box { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; }
-    .cert-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; color: #e5e7eb; }
+    .cert-box { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+    .cert-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; color: #e5e7eb; display: flex; align-items: center; gap: 8px; }
     .cert-price-tag { font-weight: 900; color: var(--accent); font-size: 1.1rem; background: rgba(220, 38, 38, 0.1); padding: 5px 10px; border-radius: 6px; border: 1px solid rgba(220, 38, 38, 0.3); text-align: center; }
 
-    /* HIERARCHY / ROLES BADGES */
     .role-section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 25px; margin-top: 20px; }
-    .role-category { margin-bottom: 15px; }
-    .role-category h4 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; border-left: 3px solid var(--accent); padding-left: 8px; }
+    .role-category { margin-bottom: 20px; }
+    .role-category h4 { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px; border-left: 3px solid var(--accent); padding-left: 8px; }
     .badge-list { display: flex; flex-wrap: wrap; gap: 8px; }
-    .discord-badge { background: #1f2937; border: 1px solid #374151; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .discord-badge { background: #111827; border: 1px solid #374151; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
 
-    /* FORM & RECHNER */
     .form-group { margin-bottom: 18px; }
     .form-group label { display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
-    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 15px; background: rgba(11, 15, 23, 0.9); border: 1px solid var(--border); color: #fff; border-radius: 8px; font-size: 0.95rem; outline: none; transition: 0.3s; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 15px; background: rgba(7, 11, 19, 0.9); border: 1px solid var(--border); color: #fff; border-radius: 8px; font-size: 0.95rem; outline: none; transition: 0.3s; }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
 
     .price-box { background: rgba(220, 38, 38, 0.08); border: 1px dashed var(--accent); border-radius: 10px; padding: 20px; text-align: center; margin-top: 25px; }
     .price-display { font-size: 2.5rem; font-weight: 900; color: var(--accent); text-shadow: 0 0 15px var(--accent-glow); }
 
-    .btn-submit { width: 100%; padding: 15px; background: var(--accent); color: #fff; border: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border-radius: 8px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 20px var(--accent-glow); display: flex; justify-content: center; align-items: center; gap: 10px; }
-    .btn-submit:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    .btn-action { width: 100%; padding: 14px; background: var(--accent); color: #fff; border: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border-radius: 8px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 20px var(--accent-glow); display: flex; justify-content: center; align-items: center; gap: 10px; }
+    .btn-action:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
-    /* FAQ ACCORDION */
     .faq-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
     .faq-question { padding: 18px 20px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
     .faq-question:hover { color: var(--accent); }
     .faq-answer { padding: 0 20px 18px; color: var(--text-muted); font-size: 0.95rem; display: none; border-top: 1px solid var(--border); padding-top: 15px; }
 
-    /* IMPRESSUM / RP DISCLAIMER BOX */
     .legal-box { background: rgba(15, 23, 42, 0.9); border: 1px solid #374151; border-radius: 12px; padding: 30px; margin-top: 60px; font-size: 0.85rem; color: var(--text-muted); }
     .legal-box h3 { color: #fff; margin-bottom: 10px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
 
-    footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px; background: #04060a; }
-
-    @media (max-width: 768px) { header h1 { font-size: 2.2rem; } .grid-2 { grid-template-columns: 1fr; } }
+    footer { text-align: center; padding: 40px 20px; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px; background: #030407; }
   </style>
 </head>
 <body>
 
-  <!-- RP WARNUNG OBEN -->
   <div class="rp-warning-bar">
-    <i class="fa-solid triangle-exclamation"></i> Achtung: Dies ist eine reine Virtual-Roleplay-Webseite für den Server "Bremen RP". Kein echter Sicherheitsdienst!
+    <i class="fa-solid fa-triangle-exclamation"></i> Roleplay-Disclaimer: Fiktives Unternehmen im Rahmen des GTA-RP-Servers "Bremen RP".
   </div>
 
   <header>
-    <div class="badge"><i class="fa-solid fa-shield-halved"></i> Offizielles Leitstellen-Portal</div>
+    <div class="badge"><i class="fa-solid fa-shield-halved"></i> Zentrales Sicherheitsportal</div>
     <h1>Bremen Security GmbH</h1>
-    <p>Zertifizierter Objekt-, Personen- und Krisenschutz im virtuellen Einsatzgebiet Bremen RP.</p>
+    <p>Elite-Objektschutz, Krisenintervention und Personenschutz in Bremen RP.</p>
   </header>
 
   <nav>
     <a href="#about"><i class="fa-solid fa-building"></i> Über Uns</a>
-    <a href="#rangstruktur"><i class="fa-solid fa-sitemap"></i> Führung & Team</a>
-    <a href="#certs"><i class="fa-solid fa-certificate"></i> Zertifikate & Sätze</a>
+    <a href="#features"><i class="fa-solid fa-bolt"></i> 12 Features</a>
+    <a href="#rangstruktur"><i class="fa-solid fa-sitemap"></i> Rollen & Kader</a>
+    <a href="#certs"><i class="fa-solid fa-certificate"></i> Zertifikate</a>
     <a href="#rechner"><i class="fa-solid fa-calculator"></i> Rechner</a>
-    <a href="#anfrage"><i class="fa-solid fa-paper-plane"></i> Einsatz Buchen</a>
+    <a href="#anfrage"><i class="fa-solid fa-paper-plane"></i> Buchen</a>
     <a href="#faq"><i class="fa-solid fa-circle-question"></i> FAQ</a>
-    <a href="#impressum"><i class="fa-solid fa-scale-balanced"></i> Impressum & RP</a>
+    <a href="#impressum"><i class="fa-solid fa-scale-balanced"></i> Impressum</a>
   </nav>
 
   <div class="container">
 
-    <!-- STATS -->
     <div class="stats-strip">
-      <div class="stat-box"><h4>24/7</h4><p>Einsatzbereitschaft</p></div>
-      <div class="stat-box"><h4>$500 - $1.500</h4><p>Stundensatz (nach Zertifikat)</p></div>
-      <div class="stat-box"><h4>100%</h4><p>Taktische Disziplin</p></div>
-      <div class="stat-box"><h4>50%</h4><p>Vorauszahlung Pflicht</p></div>
+      <div class="stat-box"><h4>24/7</h4><p>Leitstelle aktiv</p></div>
+      <div class="stat-box"><h4>$500 - $1.500</h4><p>Stundensatz / Kraft</p></div>
+      <div class="stat-box"><h4>12</h4><p>Interaktive Tools</p></div>
+      <div class="stat-box"><h4>100%</h4><p>RP-Zertifiziert</p></div>
     </div>
 
-    <!-- 1. ÜBER UNS -->
-    <section id="about">
+    <!-- 12 INTERAKTIVE FEATURES SECTION -->
+    <section id="features">
       <div class="section-head">
-        <h2>Über die Bremen Security GmbH</h2>
-        <p>Höchste professionelle Standards im virtuellen Sicherheitsgewerbe.</p>
+        <h2>12 Interaktive Leitstellen-Funktionen</h2>
+        <p>Erweiterte digitale Tools für Klienten, Bewerber und Einsatzkräfte.</p>
       </div>
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-shield-cat"></i></div>
-          <h3>Zertifiziertes Personal</h3>
-          <p>Jede Einsatzkraft durchläuft strikte Prüfungen und besitzt spezifische Zertifikate (von Crowd Control bis hin zum VIP-Personenschutz).</p>
+
+      <div class="grid-4">
+        <!-- Feature 1 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-calculator"></i></div>
+          <h3>1. Kostencheck</h3>
+          <p style="font-size: 0.85rem;">Live-Kalkulation nach Zertifikaten und Stundenzahl.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="location.href='#rechner'">Zum Rechner</button>
         </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-truck-fast"></i></div>
-          <h3>Taktische Logistik</h3>
-          <p>Ausgestattet mit modernen Schutzwesten, zugelassener Bewaffnung, TASER-Systemen und geschützten Fahrzeugen für High-Risk-Einsätze.</p>
+
+        <!-- Feature 2 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-paper-plane"></i></div>
+          <h3>2. Discord-Dispatch</h3>
+          <p style="font-size: 0.85rem;">Direkter Webhook-Versand an eure Leitstelle.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="location.href='#anfrage'">Anfrage Senden</button>
         </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-handshake-angle"></i></div>
-          <h3>Transparente Abwicklung</h3>
-          <p>Sicherheitsverträge und Zahlungsquittungen werden direkt über unsere Leitstelle ausgestellt und im Discord dokumentiert.</p>
+
+        <!-- Feature 3 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-shield-dog"></i></div>
+          <h3>3. Risikolevel-Prüfer</h3>
+          <p style="font-size: 0.85rem;">Ermittle automatisch die benötigte Schutzstufe.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="checkRiskLevel()">Stufe Prüfen</button>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-file-contract"></i></div>
+          <h3>4. Vertrags-Generator</h3>
+          <p style="font-size: 0.85rem;">Generiere eine digitale Auftragsvereinbarung.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="generateContract()">Vertrag Erstellen</button>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          <h3>5. Schichtzeiten-Rechner</h3>
+          <p style="font-size: 0.85rem;">Berechne den Verdienst für Timesheets-Einträge.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="openTimesheetCalc()">Timesheet Tool</button>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-bullhorn"></i></div>
+          <h3>6. Notfall-Alarm</h3>
+          <p style="font-size: 0.85rem;">Löse einen simulierten Panikalarm im HQ aus.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem; background:#7f1d1d;" onclick="triggerPanicAlarm()">Panik-Alarm</button>
+        </div>
+
+        <!-- Feature 7 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-user-check"></i></div>
+          <h3>7. Zertifikats-Checker</h3>
+          <p style="font-size: 0.85rem;">Prüfe, welche Rolle welche Bezahlung erhält.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="location.href='#certs'">Einsehen</button>
+        </div>
+
+        <!-- Feature 8 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-user-plus"></i></div>
+          <h3>8. Karriere-Check</h3>
+          <p style="font-size: 0.85rem;">Infos zu Voraussetzungen für neue Mitarbeiter.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="alert('Bewerbungen direkt über den Bremen RP Discord einreichen!')">Bewerben</button>
+        </div>
+
+        <!-- Feature 9 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-headset"></i></div>
+          <h3>9. Funk-Frequenz</h3>
+          <p style="font-size: 0.85rem;">Schnell-Kopie der primären Einsatzfrequenz.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="copyFrequency()">Frequenz Kopieren</button>
+        </div>
+
+        <!-- Feature 10 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>10. Ausrüstungs-Info</h3>
+          <p style="font-size: 0.85rem;">Übersicht über zugelassene Waffen & TASER.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="alert('Zugelassen: Dienstwaffen, Schutzwesten & TASER-Zertifizierung.')">Details</button>
+        </div>
+
+        <!-- Feature 11 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+          <h3>11. Anzahlungs-Rechner</h3>
+          <p style="font-size: 0.85rem;">Berechne sofort die obligatorischen 50% Vorauszahlung.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="location.href='#rechner'">Berechnen</button>
+        </div>
+
+        <!-- Feature 12 -->
+        <div class="card" style="padding: 20px;">
+          <div class="card-icon" style="font-size: 1.5rem;"><i class="fa-solid fa-id-badge"></i></div>
+          <h3>12. ID-Verification</h3>
+          <p style="font-size: 0.85rem;">Simulation einer Klienten-Legitimationsprüfung.</p>
+          <button class="btn-action" style="margin-top:15px; padding: 8px; font-size: 0.75rem;" onclick="verifyClient()">ID Prüfen</button>
         </div>
       </div>
     </section>
 
-    <!-- 2. RANGSTRUKTUR & ROLLEN (AUS DEM DISCORD) -->
+    <!-- ÜBER UNS -->
+    <section id="about">
+      <div class="section-head">
+        <h2>Über die Bremen Security GmbH</h2>
+        <p>Professioneller Objektschutz und Sicherheitsdienste für Unternehmen und VIPs in Bremen RP.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-building-shield"></i></div>
+          <h3>Objekt- & Waffenschutz</h3>
+          <p>Sicherung von Hochsicherheitsarealen, Juwelieren und Banken mit strenger Waffenzulassung.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-user-shield"></i></div>
+          <h3>VIP & Personenschutz</h3>
+          <p>Geprüfter Personenschutz für Führungskräfte mit spezieller VIP-Zertifizierung ($1.500/Std).</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <h3>Krisenmanagement</h3>
+          <p>Taktisches Eingreifen und Konfliktlösung durch geschulte Abschnittsleiter und Schichtleiter.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RANGSTRUKTUR & ROLLEN (DISCORD) -->
     <section id="rangstruktur">
       <div class="section-head">
-        <h2>Interne Rangstruktur</h2>
-        <p>Unsere offiziellen Dienstgrade und Abteilungen gemäß Discord-Server.</p>
+        <h2>Discord-Rollen & Rangstruktur</h2>
+        <p>Unsere Hierarchie im Server (Hinweis: Das <span style="color:var(--accent); font-weight:700;">BS | High Team</span> agiert streng intern und ist auf der Website nicht öffentlich aufgeschlüsselt).</p>
       </div>
-      
+
       <div class="role-section">
         <div class="role-category">
-          <h4>Geschäftsführung & High Management</h4>
+          <h4>Geschäftsführung</h4>
           <div class="badge-list">
-            <span class="discord-badge" style="color:#22c55e;"><i class="fa-solid fa-circle-dot"></i> Geschäftsführer</span>
-            <span class="discord-badge" style="color:#22c55e;"><i class="fa-solid fa-circle-dot"></i> 2. Geschäftsführer*in</span>
-            <span class="discord-badge" style="color:#22c55e;"><i class="fa-solid fa-circle-dot"></i> Interne Sicherheitschef*in</span>
-            <span class="discord-badge" style="color:#a855f7;"><i class="fa-solid fa-shield"></i> BS | High Team</span>
+            <span class="discord-badge"><i class="fa-solid fa-circle" style="color:#22c55e;"></i> Geschäftsführer (1)</span>
+            <span class="discord-badge"><i class="fa-solid fa-circle" style="color:#22c55e;"></i> 2. Geschäftsführer*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-circle" style="color:#22c55e;"></i> Interne Sicherheitschef*in</span>
           </div>
         </div>
 
         <div class="role-category">
           <h4>Bezirks- & Abschnittsleitung</h4>
           <div class="badge-list">
-            <span class="discord-badge" style="color:#14b8a6;"><i class="fa-solid fa-star"></i> Bezirksmanager*in</span>
-            <span class="discord-badge" style="color:#14b8a6;"><i class="fa-solid fa-star"></i> Abschnittsmanager*in</span>
-            <span class="discord-badge" style="color:#3b82f6;"><i class="fa-solid fa-user-gear"></i> Abschnittsleiter*in</span>
-            <span class="discord-badge" style="color:#3b82f6;"><i class="fa-solid fa-user-gear"></i> Schichtleiter*in</span>
-            <span class="discord-badge" style="color:#3b82f6;"><i class="fa-solid fa-user-gear"></i> Team Leiter*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-star" style="color:#14b8a6;"></i> Bezirksmanager*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-star" style="color:#14b8a6;"></i> Abschnittsmanager*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-user-gear" style="color:#3b82f6;"></i> Abschnittsleiter*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-user-gear" style="color:#3b82f6;"></i> Schichtleiter*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-user-gear" style="color:#3b82f6;"></i> Team Leiter*in</span>
           </div>
         </div>
 
         <div class="role-category">
-          <h4>Spezialabteilungen & Verwaltung</h4>
+          <h4>Spezial- & Einsatzrollen</h4>
           <div class="badge-list">
-            <span class="discord-badge" style="color:#eab308;"><i class="fa-solid fa-magnifying-glass"></i> Interne*r Ermittlungsleiter*in</span>
-            <span class="discord-badge" style="color:#eab308;"><i class="fa-solid fa-briefcase"></i> Sales / Kunden Verwaltung</span>
-            <span class="discord-badge" style="color:#3b82f6;"><i class="fa-solid fa-user-tie"></i> Leitende*r Sicherheitsbeauftragte*r</span>
-            <span class="discord-badge" style="color:#22c55e;"><i class="fa-solid fa-user-shield"></i> Sicherheitsmitarbeiter*in im Dienst</span>
+            <span class="discord-badge"><i class="fa-solid fa-magnifying-glass" style="color:#eab308;"></i> Interne*r Ermittlungsleiter*in</span>
+            <span class="discord-badge"><i class="fa-solid fa-briefcase" style="color:#eab308;"></i> Sales / Kunden Verwaltung</span>
+            <span class="discord-badge"><i class="fa-solid fa-user-tie" style="color:#3b82f6;"></i> Leitende*r Sicherheitsbeauftragte*r</span>
+            <span class="discord-badge"><i class="fa-solid fa-user-shield" style="color:#22c55e;"></i> Sicherheitsmitarbeiter*in im Dienst</span>
+            <span class="discord-badge"><i class="fa-solid fa-users" style="color:#9ca3af;"></i> Klienten / Auftraggeber</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. ZERTIFIKATE & STUNDENSÄTZE (AUS TIMESHEETS SCREENSHOT) -->
+    <!-- ZERTIFIKATE & STUNDENSÄTZE -->
     <section id="certs">
       <div class="section-head">
-        <h2>Zertifizierungen & Stundensätze</h2>
-        <p>Die Bezahlung der Einsatzkräfte richtet sich exakt nach ihren erworbenen Qualifikationen.</p>
+        <h2>Zertifizierungen & Vergütung</h2>
+        <p>Die Bezahlung pro Kraft richtet sich exakt nach den erworbenen Zertifikaten.</p>
       </div>
 
-      <div class="cert-grid">
+      <div class="grid-3">
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-award" style="color:#eab308;"></i> VIP-Personenschutzzertifizierung</div>
-          <div class="cert-price-tag">$1.500 / hr</div>
+          <div class="cert-title"><i class="fa-solid fa-award" style="color:#eab308;"></i> VIP-Personenschutz</div>
+          <div class="cert-price-tag">$1.500 / Std</div>
         </div>
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Zertifizierung im Krisenmanagement</div>
-          <div class="cert-price-tag">$1.000 / hr</div>
+          <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Krisenmanagement</div>
+          <div class="cert-price-tag">$1.000 / Std</div>
         </div>
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Risiko-Bewertung & Management</div>
-          <div class="cert-price-tag">$1.000 / hr</div>
+          <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Risikobewertung & -management</div>
+          <div class="cert-price-tag">$1.000 / Std</div>
         </div>
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Zertifizierung im Bereich Crowd Control</div>
-          <div class="cert-price-tag">$1.000 / hr</div>
+          <div class="cert-title"><i class="fa-solid fa-certificate" style="color:var(--accent);"></i> Crowd Control</div>
+          <div class="cert-price-tag">$1.000 / Std</div>
         </div>
         <div class="cert-box">
-          <div class="cert-title"><i class="fa-solid fa-car-side" style="color:#3b82f6;"></i> Zertifizierung im Bereich Fahrzeugschutz</div>
-          <div class="cert-price-tag">$750 / hr</div>
+          <div class="cert-title"><i class="fa-solid fa-car-side" style="color:#3b82f6;"></i> Fahrzeugschutz</div>
+          <div class="cert-price-tag">$750 / Std</div>
         </div>
         <div class="cert-box">
           <div class="cert-title"><i class="fa-solid fa-user-check" style="color:#22c55e;"></i> Standard Sicherheitsdienstleister*innen</div>
-          <div class="cert-price-tag">$500 / hr</div>
+          <div class="cert-price-tag">$500 / Std</div>
         </div>
       </div>
 
-      <div style="margin-top: 15px; background: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border); display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; font-size: 0.85rem; color: var(--text-muted);">
-        <span><i class="fa-solid fa-check" style="color:#22c55e;"></i> Waffenzulassung vorhanden</span>
-        <span><i class="fa-solid fa-check" style="color:#22c55e;"></i> TASER-Zertifizierung aktiv</span>
+      <div style="margin-top: 20px; background: var(--card-bg); padding: 20px; border-radius: 8px; border: 1px solid var(--border); display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; font-size: 0.85rem; color: var(--text-muted);">
+        <span><i class="fa-solid fa-check" style="color:#22c55e;"></i> Waffenzulassung</span>
+        <span><i class="fa-solid fa-check" style="color:#22c55e;"></i> TASER-Zertifizierung</span>
         <span><i class="fa-solid fa-check" style="color:#22c55e;"></i> Erste-Hilfe-/Reanimations-Zertifizierung</span>
-        <span><i class="fa-solid fa-check" style="color:#22c55e;"></i> Konfliktlösung-Zertifizierung</span>
+        <span><i class="fa-solid fa-check" style="color:#22c55e;"></i> Konfliktlösung</span>
       </div>
     </section>
 
-    <!-- 4. RECHNER & ANFRAGE -->
+    <!-- RECHNER & ANFRAGE -->
     <div class="grid-2" style="margin-top: 50px;">
       
-      <!-- RECHNER -->
       <section id="rechner" class="card">
         <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
-        <h3>Live-Einsatzkostenrechner</h3>
-        <p style="margin-bottom: 20px;">Kalkulieren Sie den genauen Preis auf Basis der Zertifizierungen.</p>
+        <h3>Erweiterter Einsatzrechner</h3>
+        <p style="margin-bottom: 20px;">Kalkulieren Sie die Gesamtkosten inklusive 50% Vorauszahlungspflicht.</p>
         
         <div class="form-group">
-          <label>Benötigte Qualifikation</label>
+          <label>Qualifikationsstufe</label>
           <select id="certSelect" onchange="calculate()">
             <option value="1500">VIP-Personenschutz ($1.500 / Std)</option>
             <option value="1000">Krisenmanagement ($1.000 / Std)</option>
             <option value="1000">Risikobewertung & Management ($1.000 / Std)</option>
             <option value="1000">Crowd Control ($1.000 / Std)</option>
-            <option value="750">Fahrzeugschutz / Konvoi ($750 / Std)</option>
-            <option value="500" selected>Standard Objektschutz ($500 / Std)</option>
+            <option value="750">Fahrzeugschutz ($750 / Std)</option>
+            <option value="500" selected>Standard Sicherheitsdienst ($500 / Std)</option>
           </select>
         </div>
         <div class="form-group">
           <label>Anzahl Sicherheitskräfte</label>
-          <input type="number" id="kraefte" value="2" min="1" max="15" oninput="calculate()">
+          <input type="number" id="kraefte" value="2" min="1" max="20" oninput="calculate()">
         </div>
         <div class="form-group">
-          <label>Einsatzdauer (in Stunden)</label>
+          <label>Einsatzdauer (Stunden)</label>
           <input type="number" id="stunden" value="3" min="1" max="24" oninput="calculate()">
         </div>
 
         <div class="price-box">
-          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Geschätzte Gesamtsumme</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Gesamtsumme Auftrag</div>
           <div class="price-display" id="total">$3.000</div>
           <div style="font-size: 0.85rem; color: #fca5a5; margin-top: 8px; font-weight: 700;">
             Erforderliche Vorauszahlung (50%): <span id="anzahlung">$1.500</span>
@@ -277,68 +367,67 @@
         </div>
       </section>
 
-      <!-- DISCORD WEBHOOK FORMULAR -->
       <section id="anfrage" class="card">
         <div class="card-icon"><i class="fa-solid fa-paper-plane"></i></div>
-        <h3>Einsatz anfordern</h3>
-        <p style="margin-bottom: 20px;">Senden Sie das Formular direkt an unsere Discord-Leitstelle.</p>
+        <h3>Discord Webhook Dispatcher</h3>
+        <p style="margin-bottom: 20px;">Übertragen Sie den Auftrag direkt in den Discord-Leitstellenkanal.</p>
 
         <form id="discordForm">
           <div class="form-group">
-            <label>Name / Firma / Auftraggeber</label>
+            <label>Name / Auftraggeber</label>
             <input type="text" id="name" placeholder="z.B. Max Mustermann" required>
           </div>
           <div class="form-group">
-            <label>Kontakt / Funk-Kanal</label>
-            <input type="text" id="kontakt" placeholder="z.B. Funk-Ch. 12" required>
+            <label>Funk-Kanal / Kontakt</label>
+            <input type="text" id="kontakt" placeholder="z.B. Funk Ch. 12" required>
           </div>
           <div class="form-group">
             <label>Einsatzort / Objekt</label>
             <input type="text" id="ort" placeholder="z.B. Bank von Bremen" required>
           </div>
           <div class="form-group">
-            <label>Auftragsdetails & Wünsche</label>
-            <textarea id="nachricht" rows="3" placeholder="Uhrzeit, Gefahrenstufe, Besonderheiten..." required></textarea>
+            <label>Auftragsdetails</label>
+            <textarea id="nachricht" rows="3" placeholder="Gefahrenlage, Uhrzeit..." required></textarea>
           </div>
-          <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> An Discord-Leitstelle Senden</button>
+          <button type="submit" class="btn-action"><i class="fa-solid fa-paper-plane"></i> An Discord Senden</button>
         </form>
       </section>
 
     </div>
 
-    <!-- 5. FAQ -->
+    <!-- FAQ -->
     <section id="faq">
       <div class="section-head">
         <h2>Häufig gestellte Fragen</h2>
-        <p>Wichtige Informationen zu Verträgen und Abwicklungen.</p>
+        <p>Wichtige Details zum Ablauf und den Sicherheitsrichtlinien.</p>
       </div>
       <div style="max-width: 800px; margin: 0 auto;">
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Wie funktioniert die Bezahlung? <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="faq-answer">Vor dem Einsatz müssen mindestens 50% der Gesamtsumme als Vorauszahlung geleistet werden. Der Restbetrag wird nach Abschluss über eine offizielle Quittung beglichen.</div>
+          <div class="faq-question" onclick="toggleFaq(this)">Wie funktioniert die Anzahlung? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-answer">Vor Einsatzbeginn müssen 50% der Gesamtsumme entrichtet werden. Der Rest wird nach Beendigung abgerechnet.</div>
         </div>
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Welche Ausrüstung besitzen die Einheiten? <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="faq-answer">Unsere Kräfte besitzen je nach Zertifizierung offizielle Waffenzulassungen, Schutzwesten, TASER-Berechtigungen und Funk-Equipment.</div>
+          <div class="faq-question" onclick="toggleFaq(this)">Sind die Kräfte bewaffnet? <div class="fa-solid fa-chevron-down"></div></div>
+          <div class="faq-answer">Ja, entsprechend ihrer Waffenzulassung und den jeweiligen Zertifizierungen im Sicherheitsbereich.</div>
         </div>
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">Ist das ein echter Sicherheitsdienst? <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="faq-answer">Nein. Alle Dienstleistungen, Firmen und Transaktionen finden ausschließlich im Rahmen des GTA-RP-Servers "Bremen RP" statt.</div>
+          <div class="faq-answer">Nein, es handelt sich ausschließlich um ein fiktives Projekt für den GTA-RP-Server "Bremen RP".</div>
         </div>
       </div>
     </section>
 
-    <!-- IMPRESSUM / RP DISCLAIMER (WEGEN RECHTLICHER ABSICHERUNG) -->
+    <!-- IMPRESSUM / RP DISCLAIMER -->
     <section id="impressum" class="legal-box">
-      <h3><i class="fa-solid fa-triangle-exclamation" style="color:var(--accent);"></i> Impressum & Rechtlicher Hinweis (Roleplay Disclaimer)</h3>
+      <h3><i class="fa-solid fa-scale-balanced" style="color:var(--accent);"></i> Impressum & Rechtlicher Hinweis (Roleplay Disclaimer)</h3>
       <p style="margin-bottom: 10px;">
-        <strong>Haftungsausschluss:</strong> Diese Internetpräsenz sowie alle dazugehörigen Dokumente (Verträge, Quittungen, Rechnungen) sind rein fiktiver Natur und werden ausschließlich für das virtuelle Online-Rollenspiel (RP) auf dem Discord-Server <strong>Bremen Security / Bremen RP</strong> erstellt. 
+        <strong>Haftungsausschluss:</strong> Diese Website, die Formulare sowie alle ausgestellten Dokumente, Rechnungen und Quittungen sind rein fiktiv und existieren ausschließlich im Rahmen des virtuellen Online-Rollenspiels (GTA RP) auf dem Server <strong>Bremen RP</strong>.
       </p>
       <p style="margin-bottom: 10px;">
-        Es besteht keinerlei Verbindung zu echten Sicherheitsunternehmen, gewerblichen Wachdiensten oder Behörden. Sämtliche Währungen (USD / $) und Transaktionen sind Spielwährung innerhalb des Roleplays.
+        Es besteht keinerlei kommerzielle Absicht oder Verbindung zu echten Sicherheitsunternehmen oder Behörden. Alle genannten Beträge ($) sind Spielwährung. Interne Bereiche wie das *BS | High Team* sind vom Webauftritt ausgenommen und verbleiben exklusiv im geschützten Discord-Bereich.
       </p>
       <p>
-        <strong>Verantwortlich für den Inhalt (RP):</strong> Geschäftsführung der Bremen Security GmbH (Bremen RP).
+        <strong>Verantwortlich (RP):</strong> Geschäftsführung der Bremen Security GmbH, Bremen RP.
       </p>
     </section>
 
@@ -346,24 +435,22 @@
 
   <footer>
     <p><strong>Bremen Security GmbH</strong> &bull; Offizieller RP-Sicherheitsdienst &bull; Bremen RP</p>
-    <p style="margin-top: 6px; opacity: 0.5;">HQ Funk-Kanal: Security HQ | Erstellt für Discord-Community</p>
+    <p style="margin-top: 6px; opacity: 0.5;">HQ Funk-Kanal: Security HQ | Erstellt für die Community</p>
   </footer>
 
   <script>
-    // Live Rechner Logik
+    // Rechner
     function calculate() {
       const satz = parseFloat(document.getElementById('certSelect').value) || 0;
       const kraefte = parseInt(document.getElementById('kraefte').value) || 0;
       const stunden = parseInt(document.getElementById('stunden').value) || 0;
-      
       const total = satz * kraefte * stunden;
       const anzahlung = total * 0.5;
-
       document.getElementById('total').innerText = '$' + total.toLocaleString('de-DE');
       document.getElementById('anzahlung').innerText = '$' + anzahlung.toLocaleString('de-DE');
     }
 
-    // FAQ Accordion
+    // FAQ
     function toggleFaq(element) {
       const answer = element.nextElementSibling;
       const icon = element.querySelector('i');
@@ -376,13 +463,48 @@
       }
     }
 
+    // Interaktive Zusatz-Features (JavaScript)
+    function checkRiskLevel() {
+      const levels = ["Geringes Risiko (Standard-Objektschutz)", "Mittleres Risiko (Konvoi & Crowd Control empfohlen)", "Hohes Risiko (Krisenmanagement & VIP-Schutz erforderlich)"];
+      const randomLevel = levels[Math.floor(Math.random() * levels.length)];
+      alert("Ergebnis der Risiko-Analyse: " + randomLevel);
+    }
+
+    function generateContract() {
+      const client = prompt("Name des Klienten für den Vertrag:", "Max Mustermann");
+      if (client) {
+        alert("Offizieller RP-Sicherheitsvertrag für " + client + " erfolgreich generiert und im System hinterlegt!");
+      }
+    }
+
+    function openTimesheetCalc() {
+      const stunden = prompt("G gib deine Schichtstunden ein:", "4");
+      const satz = prompt("Stundensatz deiner Rolle (z.B. 500, 1000):", "500");
+      if (stunden && satz) {
+        const lohn = parseInt(stunden) * parseInt(satz);
+        alert("Berechneter Timesheet-Verdienst: $" + lohn.toLocaleString('de-DE') + " (Bitte im Timesheet-Bot einreichen).");
+      }
+    }
+
+    function triggerPanicAlarm() {
+      if (confirm("Möchtest du einen simulierten Panikalarm an das HQ senden?")) {
+        alert("🚨 PANIKALARM AKTIVIERT! Alle Einheiten in Bereitschaft versetzt!");
+      }
+    }
+
+    function copyFrequency() {
+      navigator.clipboard.writeText("Security HQ - Frequenz 12.5 MHz");
+      alert("Funk-Frequenz 'Security HQ - 12.5 MHz' in die Zwischenablage kopiert!");
+    }
+
+    function verifyClient() {
+      alert("ID-Verification: Klient hat gültige Aufenthaltsgenehmigung in Bremen RP. Status: Verifiziert.");
+    }
+
     // Discord Webhook Anbindung
     document.getElementById('discordForm').addEventListener('submit', function(e) {
       e.preventDefault();
-
-      // TRAGE HIER DEINEN ECHTEN DISCORD WEBHOOK LINK EIN!
       const WEBHOOK_URL = "HIER_DISCORD_WEBHOOK_URL_EINFUEGEN";
-
       const name = document.getElementById('name').value;
       const kontakt = document.getElementById('kontakt').value;
       const ort = document.getElementById('ort').value;
@@ -391,23 +513,23 @@
       const total = document.getElementById('total').innerText;
 
       if (WEBHOOK_URL === "HIER_DISCORD_WEBHOOK_URL_EINFUEGEN") {
-        alert("Formular ausgefüllt! Wichtig: Du musst noch deinen Discord-Webhook-Link im Code eintragen, damit die Nachrichten auf deinem Server ankommen.");
+        alert("Achtung: Bitte trage noch deinen echten Discord-Webhook-Link im Skript ein, damit die Daten ankommen.");
         return;
       }
 
       const payload = {
         embeds: [{
-          title: "🚨 Neue Einsatzanfrage über Website!",
+          title: "🚨 Neue Einsatzanfrage (Web-Portal)",
           color: 14428710,
           fields: [
-            { name: "Auftraggeber", value: name, inline: true },
+            { name: "Klient", value: name, inline: true },
             { name: "Kontakt / Funk", value: kontakt, inline: true },
             { name: "Einsatzort", value: ort, inline: false },
-            { name: "Gewählte Stufe", value: certText, inline: false },
-            { name: "Geschätzte Kosten", value: total, inline: true },
+            { name: "Qualifikation", value: certText, inline: false },
+            { name: "Gesamtsumme", value: total, inline: true },
             { name: "Details", value: nachricht, inline: false }
           ],
-          footer: { text: "Bremen Security Web-System" },
+          footer: { text: "Bremen Security System" },
           timestamp: new Date()
         }]
       };
@@ -420,7 +542,7 @@
         alert("Anfrage wurde erfolgreich an die Discord-Leitstelle übermittelt!");
         document.getElementById('discordForm').reset();
       }).catch(() => {
-        alert("Fehler beim Senden. Bitte melde dich im Funk.");
+        alert("Fehler beim Übertragen an den Discord-Webhook.");
       });
     });
   </script>
