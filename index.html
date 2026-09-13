@@ -47,6 +47,17 @@ nav .links a.al{color:var(--go)!important}
 #mobileMenu a{display:block;padding:11px 14px;border-radius:9px;color:var(--tm);text-decoration:none;font-size:.85rem;font-weight:500;transition:all .2s}
 #mobileMenu a:hover{color:#fff;background:var(--glass)}
 #mobileMenu a.al{color:var(--go)!important}
+
+/* ============ Rollenspiel-Hinweis ============ */
+.rp-warn{
+  position:fixed;top:var(--nav-h);left:0;right:0;z-index:95;
+  background:rgba(245,158,11,0.07);border-bottom:1px solid rgba(245,158,11,0.25);
+  backdrop-filter:blur(14px);
+  display:flex;align-items:center;gap:10px;padding:10px 24px;font-size:.74rem;font-weight:600;line-height:1.45;
+}
+.rp-warn i{color:var(--go);font-size:.95rem;flex-shrink:0}
+.rp-warn strong{color:#fff}
+.rp-warn .rp-big{color:var(--r2);font-weight:800;text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
 /* ============ Buttons ============ */
 .btn{display:inline-flex;align-items:center;gap:7px;padding:12px 26px;border-radius:10px;font-weight:600;font-size:.85rem;cursor:pointer;border:none;transition:all .35s;text-decoration:none;font-family:inherit}
 .btn-r{background:linear-gradient(135deg,var(--r),#dc2626);color:#fff;box-shadow:var(--glow)}
@@ -180,7 +191,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;heigh
 .modal .mx:hover{color:var(--r)}
 
 /* ============ Toasts ============ */
-#toasts{position:fixed;top:80px;right:20px;z-index:2000;display:flex;flex-direction:column;gap:8px}
+#toasts{position:fixed;top:calc(var(--nav-h) + 48px);right:20px;z-index:2000;display:flex;flex-direction:column;gap:8px}
 .toast{padding:13px 18px;border-radius:10px;color:#fff;font-size:.8rem;font-weight:500;animation:slideIn .4s ease;min-width:250px;backdrop-filter:blur(20px);display:flex;align-items:center;gap:9px}
 .toast.ok{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)}
 .toast.err{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2)}
@@ -218,10 +229,14 @@ footer i{color:var(--r4)}
 /* ============ Responsive ============ */
 @media(max-width:1024px){.grid3{grid-template-columns:repeat(2,1fr)}.rev-head{grid-template-columns:1fr}}
 @media(max-width:820px){nav .links{display:none}.nav-burger{display:flex}}
-@media(max-width:768px){.grid3{grid-template-columns:1fr}.hero h1{font-size:2.2rem}.hero .stats{gap:30px}}
+@media(max-width:768px){.grid3{grid-template-columns:1fr}.hero h1{font-size:2.2rem}.hero .stats{gap:30px}.rp-warn{font-size:.64rem;padding:8px 12px}}
 </style>
 </head>
 <body>
+<div class="rp-warn" role="note">
+  <i class="fa-solid fa-triangle-exclamation"></i>
+  <span><strong>Rollenspiel-Hinweis:</strong> Diese Website ist Teil eines <strong>Rollenspiels</strong>. Alle Dienstleistungen, Preise, Kräfte &amp; Inhalte sind <span class="rp-big">Fiktion</span> – <span class="rp-big">NICHTS DAVON IST ECHT!</span></span>
+</div>
 <div id="toasts" aria-live="polite"></div>
 
 <!-- ================= Navigation ================= -->
@@ -373,6 +388,10 @@ footer i{color:var(--r4)}
     <div class="sh"><span class="badge">FAQ</span><h2>Häufige <span>Fragen</span></h2></div>
     <div class="faq">
       <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">Ist Verion Security ein echtes Unternehmen? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-a"><strong style="color:#fff">Nein!</strong> Verion Security ist eine fiktive Organisation innerhalb eines Rollenspiels. Alle Dienste, Preise und Inhalte dieser Website sind nicht real.</div>
+      </div>
+      <div class="faq-i">
         <div class="faq-q" onclick="toggleFaq(this)">Wie schnell ist ein Team verfügbar? <i class="fa-solid fa-chevron-down"></i></div>
         <div class="faq-a">Innerhalb von 30-60 Minuten nach Vertragsabschluss. 24/7 einsatzbereit.</div>
       </div>
@@ -427,7 +446,8 @@ footer i{color:var(--r4)}
 
 <!-- ================= Footer ================= -->
 <footer>
-  <p>&copy; 2026 Verion Security GmbH &nbsp;|&nbsp; <i class="fa-solid fa-shield-halved"></i> Premium Sicherheitsdienste</p>
+  <p style="color:var(--go);font-weight:600;font-size:.72rem;line-height:1.5;max-width:760px;margin:0 auto 12px"><i class="fa-solid fa-triangle-exclamation"></i> Achtung: Alle Inhalte dieser Website sind ausschließlich für das Rollenspiel bestimmt – Dienste, Preise und Personen sind fiktiv. NICHTS DAVON IST ECHT!</p>
+  <p>&copy; 2026 Verion Security GmbH &nbsp;|&nbsp; <i class="fa-solid fa-shield-halved"></i> Premium Sicherheitsdienste (Fiktion)</p>
 </footer>
 <!-- ================= Service-Details Modal ================= -->
 <div class="modal" id="svcModal">
