@@ -1,56 +1,877 @@
-<!DOCTYPE html><html lang=de><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1.0"><title>Verion Security GmbH</title><link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel=stylesheet><style>
-:root{--bg:#030712;--b2:#0a0f1e;--b3:#111827;--card:rgba(17,24,39,0.4);--r:#ef4444;--r2:#f87171;--r3:#991b1b;--r4:#ff3b3b;--g:#22c55e;--go:#f59e0b;--t:#f1f5f9;--tm:#94a3b8;--tf:#64748b;--bd:rgba(255,255,255,0.06);--bdr:rgba(239,68,68,0.2);--glow:0 0 30px rgba(239,68,68,0.2);--glass:rgba(255,255,255,0.02)}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--t);font-family:Inter,sans-serif;line-height:1.6;overflow-x:hidden;background-image:radial-gradient(ellipse at 30% 20%,rgba(239,68,68,0.03) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(59,130,246,0.02) 0%,transparent 50%),radial-gradient(ellipse at 50% 0%,rgba(239,68,68,0.05) 0%,transparent 40%)}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--r);border-radius:3px}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,18,0.85);backdrop-filter:blur(24px) saturate(1.4);border-bottom:1px solid var(--bd);height:65px;display:flex;align-items:center;padding:0 25px}nav .logo{font-family:Orbitron,sans-serif;font-weight:900;font-size:1.1rem;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}nav .logo i{color:var(--r4);font-size:1.3rem;filter:drop-shadow(0 0 8px rgba(239,68,68,0.5))}nav .logo span{color:var(--r4)}
-nav .links{display:flex;gap:2px;margin-left:auto;list-style:none}nav .links a{color:var(--tm);text-decoration:none;padding:7px 13px;border-radius:8px;font-size:.8rem;font-weight:500;transition:all .25s}nav .links a:hover{color:#fff;background:var(--glass)}nav .links a.al{color:var(--go)!important}
-.btn{display:inline-flex;align-items:center;gap:7px;padding:12px 26px;border-radius:10px;font-weight:600;font-size:.85rem;cursor:pointer;border:none;transition:all .35s;text-decoration:none}.btn-r{background:linear-gradient(135deg,var(--r),#dc2626);color:#fff;box-shadow:var(--glow)}.btn-r:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(239,68,68,0.35)}.btn-o{background:var(--glass);color:#fff;border:1px solid var(--bdr)}.btn-o:hover{background:rgba(239,68,68,0.06);border-color:var(--r)}.btn-s{padding:6px 14px;font-size:.7rem;border-radius:7px}
-section{padding:90px 20px;position:relative}.container{max-width:1150px;margin:0 auto}.sh{text-align:center;margin-bottom:50px}.sh .badge{display:inline-block;background:rgba(239,68,68,0.06);color:var(--r2);padding:4px 15px;border-radius:20px;font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--bdr)}.sh h2{font-family:Orbitron,sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);color:#fff;margin:10px 0 6px}.sh h2 span{color:var(--r4);text-shadow:0 0 25px rgba(239,68,68,0.25)}.sh p{color:var(--tm);font-size:.88rem}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#030712">
+<title>Verion Security GmbH | Premium Sicherheitsdienste</title>
+<meta name="description" content="Verion Security GmbH – Premium-Partner für Personenschutz, Objektschutz, Event-Security, Konvoi-Schutz und Krisenmanagement. Diskret & 24/7 einsatzbereit.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ Variablen & Grundlagen ============ */
+:root{
+  --bg:#030712; --b2:#0a0f1e; --b3:#111827;
+  --card:rgba(17,24,39,0.4);
+  --r:#ef4444; --r2:#f87171; --r3:#991b1b; --r4:#ff3b3b;
+  --g:#22c55e; --go:#f59e0b;
+  --t:#f1f5f9; --tm:#94a3b8; --tf:#64748b;
+  --bd:rgba(255,255,255,0.06); --bdr:rgba(239,68,68,0.2);
+  --glow:0 0 30px rgba(239,68,68,0.2);
+  --glass:rgba(255,255,255,0.02);
+  --nav-h:65px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 14px)}
+body{
+  background:var(--bg);color:var(--t);font-family:Inter,sans-serif;line-height:1.6;overflow-x:hidden;
+  background-image:
+    radial-gradient(ellipse at 30% 20%,rgba(239,68,68,0.03) 0%,transparent 60%),
+    radial-gradient(ellipse at 70% 60%,rgba(59,130,246,0.02) 0%,transparent 50%),
+    radial-gradient(ellipse at 50% 0%,rgba(239,68,68,0.05) 0%,transparent 40%);
+}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--r);border-radius:3px}
 
-.hero{text-align:center;padding:140px 20px 110px}.hero h1{font-family:Orbitron,sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.1;margin-bottom:15px;background:linear-gradient(135deg,#fff,#e2e8f0,var(--r2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero h1 em{font-style:normal;-webkit-text-fill-color:var(--r4);text-shadow:0 0 40px rgba(239,68,68,0.3)}.hero p{font-size:1.05rem;color:var(--tm);max-width:530px;margin:0 auto 30px}.hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:45px}.hero .stats{display:flex;justify-content:center;gap:55px;flex-wrap:wrap}.hero .stat{text-align:center}.hero .stat .n{font-family:Orbitron,sans-serif;font-size:2.2rem;font-weight:900;color:#fff}.hero .stat .n em{font-style:normal;color:var(--r4)}.hero .stat .l{font-size:.7rem;color:var(--tf);text-transform:uppercase;letter-spacing:2px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:26px;backdrop-filter:blur(20px);transition:all .4s;position:relative}.card::before{content:"";position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,0.03),transparent 60%);pointer-events:none}.card:hover{transform:translateY(-5px);border-color:var(--bdr);box-shadow:0 25px 50px rgba(0,0,0,0.3)}
-.scard{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:32px 20px;text-align:center;cursor:pointer;transition:all .45s;backdrop-filter:blur(20px);position:relative;overflow:hidden}.scard::after{content:"";position:absolute;top:-50%;right:-50%;width:100px;height:100px;background:radial-gradient(circle,rgba(239,68,68,0.05),transparent 70%);border-radius:50%;transition:all .45s}.scard:hover{transform:translateY(-8px);border-color:var(--r);box-shadow:0 30px 60px rgba(0,0,0,0.4)}.scard:hover::after{width:160px;height:160px;top:-20%;right:-20%}.scard .ic{width:55px;height:55px;border-radius:50%;background:rgba(239,68,68,0.06);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.4rem;color:var(--r);border:2px solid rgba(239,68,68,0.08);transition:all .45s}.scard:hover .ic{border-color:var(--r);box-shadow:0 0 30px rgba(239,68,68,0.3);background:rgba(239,68,68,0.1)}.scard h3{font-size:.95rem;color:#fff;margin-bottom:5px;font-weight:600}.scard p{color:var(--tm);font-size:.78rem;line-height:1.4}.scard .pt{display:inline-block;margin-top:10px;padding:3px 10px;background:rgba(239,68,68,0.05);border-radius:12px;color:var(--r2);font-weight:600;font-size:.7rem}
-.rev{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:24px;backdrop-filter:blur(20px);transition:all .35s;position:relative}.rev::before{content:"";position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,0.02),transparent 60%);pointer-events:none}.rev:hover{transform:translateY(-4px);border-color:var(--bdr);box-shadow:0 20px 40px rgba(0,0,0,0.25)}.rev .rh{display:flex;align-items:center;gap:12px;margin-bottom:12px}.rev .ra{width:44px;height:44px;min-width:44px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--r3));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:1.1rem;box-shadow:0 0 18px rgba(239,68,68,0.2);border:2px solid rgba(255,255,255,0.08)}.rev .ri{flex:1}.rev .ri h4{font-size:.84rem;color:#fff;font-weight:600}.rev .ri p{font-size:.68rem;color:var(--tf);margin-top:1px}.rev .stars{color:var(--go);font-size:.75rem;letter-spacing:2px;margin-bottom:6px}.rev .rt{color:var(--tm);font-size:.8rem;font-style:italic;line-height:1.5}
+/* ============ Navigation ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,18,0.88);backdrop-filter:blur(24px) saturate(1.4);border-bottom:1px solid var(--bd);height:var(--nav-h);display:flex;align-items:center;padding:0 24px;gap:16px}
+nav .logo{font-family:Orbitron,sans-serif;font-weight:900;font-size:1.1rem;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
+nav .logo i{color:var(--r4);font-size:1.3rem;filter:drop-shadow(0 0 8px rgba(239,68,68,0.5))}
+nav .logo span{color:var(--r4)}
+nav .links{display:flex;gap:2px;margin-left:auto;list-style:none}
+nav .links a{color:var(--tm);text-decoration:none;padding:7px 13px;border-radius:8px;font-size:.8rem;font-weight:500;transition:all .25s}
+nav .links a:hover{color:#fff;background:var(--glass)}
+nav .links a.al{color:var(--go)!important}
+.nav-burger{display:none;margin-left:auto;background:none;border:1px solid var(--bd);border-radius:9px;color:var(--tm);width:38px;height:38px;cursor:pointer;font-size:1rem;transition:all .25s}
+.nav-burger:hover{color:#fff;border-color:var(--r)}
+#mobileMenu{position:fixed;top:var(--nav-h);left:0;right:0;z-index:99;background:rgba(3,7,18,0.97);border-bottom:1px solid var(--bdr);transform:translateY(-120%);transition:transform .3s;padding:12px 22px;display:flex;flex-direction:column;gap:2px;backdrop-filter:blur(20px)}
+#mobileMenu.open{transform:translateY(0)}
+#mobileMenu a{display:block;padding:11px 14px;border-radius:9px;color:var(--tm);text-decoration:none;font-size:.85rem;font-weight:500;transition:all .2s}
+#mobileMenu a:hover{color:#fff;background:var(--glass)}
+#mobileMenu a.al{color:var(--go)!important}
+/* ============ Buttons ============ */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:12px 26px;border-radius:10px;font-weight:600;font-size:.85rem;cursor:pointer;border:none;transition:all .35s;text-decoration:none;font-family:inherit}
+.btn-r{background:linear-gradient(135deg,var(--r),#dc2626);color:#fff;box-shadow:var(--glow)}
+.btn-r:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(239,68,68,0.35)}
+.btn-o{background:var(--glass);color:#fff;border:1px solid var(--bdr)}
+.btn-o:hover{background:rgba(239,68,68,0.06);border-color:var(--r)}
+.btn-s{padding:6px 14px;font-size:.7rem;border-radius:7px}
+.btn-danger{background:#dc2626;color:#fff;border:none;padding:6px 11px;border-radius:6px;cursor:pointer;font-size:.72rem;transition:all .25s}
+.btn-danger:hover{background:#ef4444;box-shadow:0 0 12px rgba(239,68,68,0.35)}
 
+/* ============ Sektionen / Layout ============ */
+section{padding:90px 20px;position:relative}
+.container{max-width:1150px;margin:0 auto}
+.sh{text-align:center;margin-bottom:50px}
+.sh .badge{display:inline-block;background:rgba(239,68,68,0.06);color:var(--r2);padding:4px 15px;border-radius:20px;font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--bdr)}
+.sh h2{font-family:Orbitron,sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);color:#fff;margin:10px 0 6px}
+.sh h2 span{color:var(--r4);text-shadow:0 0 25px rgba(239,68,68,0.25)}
+.sh p{color:var(--tm);font-size:.88rem}
 
-.calc{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:28px;backdrop-filter:blur(20px);max-width:520px;margin:0 auto}.calc .cr{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--bd)}.calc .cr:last-child{border-bottom:none}.calc .cr .l{color:var(--tm);font-size:.82rem}.calc .cr .v{color:#fff;font-weight:700;font-family:Orbitron,sans-serif}.calc .tot{font-size:1.5rem!important;color:var(--r4)!important;text-shadow:0 0 15px rgba(239,68,68,0.3)}input[type=range]{width:100%;-webkit-appearance:none;height:5px;background:var(--b2);border-radius:3px;outline:none}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--r);cursor:pointer;box-shadow:var(--glow)}
-.faq{max-width:700px;margin:0 auto}.faq-i{background:var(--card);border:1px solid var(--bd);border-radius:12px;margin-bottom:8px;overflow:hidden;backdrop-filter:blur(16px);transition:all .3s}.faq-i:hover{border-color:var(--bdr)}.faq-q{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:.85rem;font-weight:500;transition:all .2s}.faq-q:hover{color:var(--r2)}.faq-q i{transition:transform .35s;font-size:.8rem;color:var(--r)}.faq-i.open .faq-q i{transform:rotate(180deg)}.faq-a{max-height:0;overflow:hidden;transition:max-height .4s;padding:0 20px;color:var(--tm);font-size:.78rem;line-height:1.6}.faq-i.open .faq-a{max-height:180px;padding-bottom:14px}
-.modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.75);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .35s;backdrop-filter:blur(6px)}.modal.show{opacity:1;visibility:visible}.modal .mc{background:var(--b3);border:1px solid var(--bd);border-radius:18px;padding:30px;max-width:520px;width:92%;max-height:85vh;overflow-y:auto;position:relative;box-shadow:0 40px 80px rgba(0,0,0,0.5);transform:translateY(20px);transition:transform .35s}.modal.show .mc{transform:translateY(0)}.modal h2{font-family:Orbitron,sans-serif;font-size:1.2rem;color:#fff;margin-bottom:16px;text-align:center}.modal .mx{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--tm);font-size:1.3rem;cursor:pointer;transition:.2s}.modal .mx:hover{color:var(--r)}
-.fg{margin-bottom:14px}.fg label{display:block;color:var(--tm);font-size:.76rem;margin-bottom:4px;font-weight:500}.fg input,.fg textarea,.fg select{width:100%;padding:11px 14px;background:rgba(255,255,255,0.02);border:1px solid var(--bd);border-radius:9px;color:#fff;font-size:.84rem;font-family:inherit;outline:none;resize:vertical;transition:all .3s}.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--r)}.fg textarea{min-height:85px}
-.si{display:flex;gap:4px;font-size:1.5rem;cursor:pointer}.si i{color:var(--tf);transition:all .15s}.si i.on{color:var(--go);text-shadow:0 0 8px rgba(245,158,11,0.3)}
-#toasts{position:fixed;top:80px;right:20px;z-index:2000;display:flex;flex-direction:column;gap:8px}.toast{padding:13px 18px;border-radius:10px;color:#fff;font-size:.8rem;font-weight:500;animation:slideIn .4s ease;min-width:250px;backdrop-filter:blur(20px)}.toast.ok{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)}.toast.err{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2)}@keyframes slideIn{from{opacity:0;transform:translateX(80px)}to{opacity:1;transform:translateX(0)}}
+/* ============ Hero ============ */
+.hero{text-align:center;padding:140px 20px 110px}
+.hero h1{font-family:Orbitron,sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.1;margin-bottom:15px;background:linear-gradient(135deg,#fff,#e2e8f0,var(--r2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1 em{font-style:normal;-webkit-text-fill-color:var(--r4);text-shadow:0 0 40px rgba(239,68,68,0.3)}
+.hero p{font-size:1.05rem;color:var(--tm);max-width:530px;margin:0 auto 30px}
+.hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:45px}
+.hero .stats{display:flex;justify-content:center;gap:55px;flex-wrap:wrap}
+.hero .stat{text-align:center}
+.hero .stat .n{font-family:Orbitron,sans-serif;font-size:2.2rem;font-weight:900;color:#fff}
+.hero .stat .n em{font-style:normal;color:var(--r4)}
+.hero .stat .l{font-size:.7rem;color:var(--tf);text-transform:uppercase;letter-spacing:2px}
+
+/* ============ Grids & Cards ============ */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:26px;backdrop-filter:blur(20px);transition:all .4s;position:relative}
+.card::before{content:"";position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,0.03),transparent 60%);pointer-events:none}
+.card:hover{transform:translateY(-5px);border-color:var(--bdr);box-shadow:0 25px 50px rgba(0,0,0,0.3)}
+.scard{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:32px 20px;text-align:center;cursor:pointer;transition:all .45s;backdrop-filter:blur(20px);position:relative;overflow:hidden}
+.scard::after{content:"";position:absolute;top:-50%;right:-50%;width:100px;height:100px;background:radial-gradient(circle,rgba(239,68,68,0.05),transparent 70%);border-radius:50%;transition:all .45s}
+.scard:hover{transform:translateY(-8px);border-color:var(--r);box-shadow:0 30px 60px rgba(0,0,0,0.4)}
+.scard:hover::after{width:160px;height:160px;top:-20%;right:-20%}
+.scard .ic{width:55px;height:55px;border-radius:50%;background:rgba(239,68,68,0.06);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.4rem;color:var(--r);border:2px solid rgba(239,68,68,0.08);transition:all .45s}
+.scard:hover .ic{border-color:var(--r);box-shadow:0 0 30px rgba(239,68,68,0.3);background:rgba(239,68,68,0.1)}
+.scard h3{font-size:.95rem;color:#fff;margin-bottom:5px;font-weight:600}
+.scard p{color:var(--tm);font-size:.78rem;line-height:1.4}
+.scard .pt{display:inline-block;margin-top:10px;padding:3px 10px;background:rgba(239,68,68,0.05);border-radius:12px;color:var(--r2);font-weight:600;font-size:.7rem}
+/* ============ Kalkulator ============ */
+.calc{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:28px;backdrop-filter:blur(20px);max-width:520px;margin:0 auto}
+.calc .cr{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--bd)}
+.calc .cr:last-child{border-bottom:none}
+.calc .cr .l{color:var(--tm);font-size:.82rem}
+.calc .cr .v{color:#fff;font-weight:700;font-family:Orbitron,sans-serif}
+.calc .tot{font-size:1.5rem!important;color:var(--r4)!important;text-shadow:0 0 15px rgba(239,68,68,0.3)}
+input[type=range]{width:100%;-webkit-appearance:none;height:5px;background:var(--b2);border-radius:3px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--r);cursor:pointer;box-shadow:var(--glow)}
+
+/* ============ Reviews: Übersicht ============ */
+.rev-head{display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:stretch;margin-bottom:34px}
+.rev-avg{background:var(--card);border:1px solid var(--bdr);border-radius:18px;padding:22px 26px;backdrop-filter:blur(16px);text-align:center;position:relative}
+.rev-avg::before{content:"";position:absolute;inset:0;border-radius:18px;background:linear-gradient(135deg,rgba(245,158,11,0.04),transparent 60%);pointer-events:none}
+.rev-avg .av-label{font-size:.62rem;color:var(--tf);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
+.rev-avg .av-num{font-family:Orbitron,sans-serif;font-size:2.9rem;font-weight:900;line-height:1;background:linear-gradient(135deg,#fff,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.rev-avg .av-num small{font-size:1rem;color:var(--tm)}
+.rev-avg .avg-stars{color:var(--go);font-size:.95rem;letter-spacing:2px;text-shadow:0 0 10px rgba(245,158,11,.3)}
+.rev-avg .avg-stars i.fa-regular{color:var(--tf)}
+.rev-avg .av-cnt{margin-top:4px;font-size:.78rem;color:var(--tm)}
+.rev-dist{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:20px 24px;backdrop-filter:blur(16px)}
+.rev-dist h4{font-size:.8rem;color:#fff;display:flex;align-items:center;gap:8px;margin-bottom:16px;font-weight:600}
+.rev-dist h4 i{color:var(--go)}
+.dist-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.dist-row .dl{width:38px;color:var(--tf);font-size:.72rem;font-weight:600;display:flex;align-items:center;gap:4px}
+.dist-row .dl i{font-size:.55rem;color:var(--go)}
+.dist-row .dtrack{flex:1;height:9px;background:rgba(255,255,255,0.06);border-radius:9px;overflow:hidden}
+.dist-row .dfill{height:100%;background:linear-gradient(90deg,#f59e0b,#ef4444);border-radius:9px;width:0;transition:width .6s ease}
+.dist-row .dp{width:34px;text-align:right;color:var(--tm);font-size:.7rem;font-weight:600}
+/* ============ Reviews: Karten ============ */
+.rev-card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:22px;backdrop-filter:blur(18px);transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column;position:relative;overflow:hidden;animation:revIn .5s ease both}
+.rev-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.03),transparent 60%);pointer-events:none}
+.rev-card:hover{transform:translateY(-5px);box-shadow:0 25px 50px rgba(0,0,0,0.35);border-color:var(--bdr)}
+@keyframes revIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.rev-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.rev-av{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:1.05rem;border:2px solid rgba(255,255,255,0.1);flex-shrink:0;box-shadow:0 0 12px rgba(0,0,0,0.35)}
+.rev-meta{flex:1;min-width:0}
+.rev-meta h4{font-size:.85rem;color:#fff;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rev-meta p{font-size:.7rem;color:var(--tf);margin-top:2px}
+.rev-meta .vfy{display:inline-flex;align-items:center;gap:5px;color:var(--g);font-size:.6rem;margin-top:3px;font-weight:600}
+.rev-meta .vfy i{font-size:.58rem}
+.rev-stars-row{display:flex;align-items:center;gap:8px;margin:0 0 2px}
+.rev-stars-row .rv-stars{color:var(--go);font-size:.78rem;letter-spacing:2px;text-shadow:0 0 8px rgba(245,158,11,.25)}
+.rev-stars-row .rv-stars i.fa-regular{color:var(--tf)}
+.rev-stars-row .rv-n{font-size:.68rem;color:var(--tm);font-weight:600}
+.rev-text{position:relative;color:var(--tm);font-size:.8rem;line-height:1.55;margin-top:12px;padding:10px 14px;background:rgba(255,255,255,.025);border-left:2px solid rgba(245,158,11,.35);border-radius:8px}
+.rev-text i{position:absolute;top:-7px;left:4px;font-size:.7rem;color:rgba(245,158,11,.5)}
+.rev-empty{grid-column:1/-1;background:var(--card);border:1px dashed var(--bd);border-radius:16px;padding:44px;text-align:center;color:var(--tm);backdrop-filter:blur(16px)}
+.rev-empty i{font-size:2rem;color:var(--go);margin-bottom:10px;display:block}
+.rev-empty p{font-size:.85rem}
+.rev-form-card{max-width:520px;margin:28px auto 0;border-color:var(--bdr)}
+.rev-form-card h3{color:#fff;margin-bottom:14px;text-align:center;font-size:.95rem;display:flex;align-items:center;gap:8px;justify-content:center}
+
+/* ============ FAQ ============ */
+.faq{max-width:700px;margin:0 auto}
+.faq-i{background:var(--card);border:1px solid var(--bd);border-radius:12px;margin-bottom:8px;overflow:hidden;backdrop-filter:blur(16px);transition:all .3s}
+.faq-i:hover{border-color:var(--bdr)}
+.faq-q{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:.85rem;font-weight:500;transition:all .2s}
+.faq-q:hover{color:var(--r2)}
+.faq-q i{transition:transform .35s;font-size:.8rem;color:var(--r)}
+.faq-i.open .faq-q i{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s;padding:0 20px;color:var(--tm);font-size:.78rem;line-height:1.6}
+.faq-i.open .faq-a{max-height:200px;padding-bottom:14px}
+
+/* ============ Formulare ============ */
+.fg{margin-bottom:14px}
+.fg label{display:block;color:var(--tm);font-size:.76rem;margin-bottom:4px;font-weight:500}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 14px;background:rgba(255,255,255,0.02);border:1px solid var(--bd);border-radius:9px;color:#fff;font-size:.84rem;font-family:inherit;outline:none;resize:vertical;transition:all .3s}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--r)}
+.fg textarea{min-height:85px}
+.si{display:flex;gap:6px;font-size:1.6rem;cursor:pointer}
+.si i{color:var(--tf);transition:all .15s}
+.si i.on{color:var(--go);text-shadow:0 0 10px rgba(245,158,11,.35)}
+.si-hint{display:block;font-size:.68rem;color:var(--tm);margin-top:5px;font-weight:600}
+/* ============ Modals ============ */
+.modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.75);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .35s;backdrop-filter:blur(6px)}
+.modal.show{opacity:1;visibility:visible}
+.modal .mc{background:var(--b3);border:1px solid var(--bd);border-radius:18px;padding:30px;max-width:520px;width:92%;max-height:85vh;overflow-y:auto;position:relative;box-shadow:0 40px 80px rgba(0,0,0,0.5);transform:translateY(20px);transition:transform .35s}
+.modal.show .mc{transform:translateY(0)}
+.modal h2{font-family:Orbitron,sans-serif;font-size:1.2rem;color:#fff;margin-bottom:18px;text-align:center}
+.modal .mx{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--tm);font-size:1.3rem;cursor:pointer;transition:.2s}
+.modal .mx:hover{color:var(--r)}
+
+/* ============ Toasts ============ */
+#toasts{position:fixed;top:80px;right:20px;z-index:2000;display:flex;flex-direction:column;gap:8px}
+.toast{padding:13px 18px;border-radius:10px;color:#fff;font-size:.8rem;font-weight:500;animation:slideIn .4s ease;min-width:250px;backdrop-filter:blur(20px);display:flex;align-items:center;gap:9px}
+.toast.ok{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)}
+.toast.err{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2)}
+.toast.info{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2)}
+.toast i{color:#fff;font-size:.8rem}
+@keyframes slideIn{from{opacity:0;transform:translateX(80px)}to{opacity:1;transform:translateX(0)}}
+
+/* ============ Footer ============ */
 footer{background:var(--b2);border-top:1px solid var(--bd);padding:30px 20px;text-align:center;color:var(--tf);font-size:.72rem}
-.panel{display:none;position:fixed;inset:0;z-index:900;background:var(--bg);overflow-y:auto}.panel.show{display:block}.panel .ph{background:rgba(17,24,39,0.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr);padding:14px 25px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:5}.panel .ph h2{font-family:Orbitron,sans-serif;font-size:1rem;color:#fff}.panel .pc{max-width:1050px;margin:0 auto;padding:25px}
-.ptable{width:100%;border-collapse:collapse;font-size:.75rem;background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:16px;backdrop-filter:blur(16px)}.ptable th{background:rgba(255,255,255,0.02);color:var(--tf);padding:10px 14px;text-align:left;font-weight:600;text-transform:uppercase;letter-spacing:.5px;font-size:.64rem}.ptable td{padding:8px 14px;color:var(--tm);border-bottom:1px solid var(--bd)}.wh-in{width:100%;padding:10px 14px;background:rgba(255,255,255,0.02);border:1px solid var(--bd);border-radius:9px;color:#fff;font-size:.78rem;font-family:monospace;outline:none;margin:8px 0}.wh-in:focus{border-color:var(--r)}
-@media(max-width:768px){.grid2,.grid3{grid-template-columns:1fr}nav .links{display:none}}
-</style></head><body>
+footer i{color:var(--r4)}
 
+/* ============ Admin-Panel ============ */
+.panel{display:none;position:fixed;inset:0;z-index:900;background:var(--bg);overflow-y:auto}
+.panel.show{display:block}
+.panel .ph{background:rgba(17,24,39,0.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr);padding:14px 25px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:5}
+.panel .ph h2{font-family:Orbitron,sans-serif;font-size:1rem;color:#fff}
+.panel .ph h2 i{color:var(--go)}
+.panel .pc{max-width:1050px;margin:0 auto;padding:25px}
+.panel .pc h4{color:#fff;margin:20px 0 10px;font-size:.85rem;display:flex;align-items:center;gap:8px}
+.panel .pc h4 i{color:var(--r2)}
+.stat-cards{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.stat-card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px 22px;text-align:center;flex:1;min-width:120px;backdrop-filter:blur(16px)}
+.stat-card .n{font-family:Orbitron,sans-serif;font-size:1.6rem;font-weight:900;color:#fff}
+.stat-card .n.sm{font-size:.9rem}
+.stat-card .l{color:var(--tm);font-size:.68rem;text-transform:uppercase;letter-spacing:1px;margin-top:4px;display:block}
+.ptable{width:100%;border-collapse:collapse;font-size:.75rem;background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:16px;backdrop-filter:blur(16px)}
+.ptable th{background:rgba(255,255,255,0.02);color:var(--tf);padding:10px 14px;text-align:left;font-weight:600;text-transform:uppercase;letter-spacing:.5px;font-size:.64rem}
+.ptable td{padding:8px 14px;color:var(--tm);border-bottom:1px solid var(--bd)}
+.tb-stars{color:var(--go);font-size:.72rem;letter-spacing:1px;white-space:nowrap}
+.tb-stars i.fa-regular{color:var(--tf)}
+.wh-in{width:100%;padding:10px 14px;background:rgba(255,255,255,0.02);border:1px solid var(--bd);border-radius:9px;color:#fff;font-size:.78rem;font-family:monospace;outline:none;margin:8px 0}
+.wh-in:focus{border-color:var(--r)}
+.wh-hint{color:var(--tf);font-size:.65rem;margin-bottom:10px}
 
-<div id=toasts></div><nav><a href=# class=logo><i class="fa-solid fa-shield-halved"></i>VERION<span>SEC</span></a><ul class=links><li><a href=#services>Services</a></li><li><a href=#calc>Kalkulator</a></li><li><a href=#reviews>Reviews</a></li><li><a href=#faq>FAQ</a></li><li><a href=#kontakt>Kontakt</a></li><li><a href=# class=al onclick=openAdmin()>Admin</a></li></ul></nav>
-<section class=hero><h1>Ihre Sicherheit.<br><em>Unsere Mission.</em></h1><p>Verion Security GmbH - Premium-Partner fuer Personenschutz, Objektschutz und Konvoi-Begleitung. Diskretion, Professionalitaet und modernste Technologie seit 2009.</p><div class=btns><a href=#services class="btn btn-r"><i class="fa-solid fa-bolt"></i> Services</a><a href=#calc class="btn btn-o"><i class="fa-solid fa-calculator"></i> Preisrechner</a><a href=#kontakt class="btn btn-o"><i class="fa-solid fa-headset"></i> Anfrage</a></div><div class=stats><div class=stat><div class=n><em>500</em>+</div><div class=l>Einsaetze</div></div><div class=stat><div class=n><em>120</em>+</div><div class=l>Kraefte</div></div><div class=stat><div class=n><em>99</em>%</div><div class=l>Erfolgsquote</div></div><div class=stat><div class=n><em>15</em>+</div><div class=l>Jahre</div></div></div></section>
-<section id=services><div class=container><div class=sh><span class=badge>Leistungen</span><h2>Unsere <span>Services</span></h2><p>Massgeschneiderte Sicherheitsloesungen</p></div><div class=grid3><div class=scard data-svc=vip><div class=ic><i class="fa-solid fa-crown"></i></div><h3>VIP Personenschutz</h3><p>Exekutivschutz durch erfahrene Kraefte.</p><span class=pt>ab $500/h</span></div><div class=scard data-svc=event><div class=ic><i class="fa-solid fa-users"></i></div><h3>Event-Security</h3><p>Crowd-Control und Veranstaltungssicherheit.</p><span class=pt>ab $350/h</span></div><div class=scard data-svc=objekt><div class=ic><i class="fa-solid fa-building-shield"></i></div><h3>Objektschutz</h3><p>24/7-Bewachung mit modernster Technik.</p><span class=pt>ab $200/h</span></div><div class=scard data-svc=konvoi><div class=ic><i class="fa-solid fa-truck-fast"></i></div><h3>Konvoi-Schutz</h3><p>Bewaffnete Eskorte mit GPS-Tracking.</p><span class=pt>ab $750/h</span></div><div class=scard data-svc=crisis><div class=ic><i class="fa-solid fa-triangle-exclamation"></i></div><h3>Krisenmanagement</h3><p>Taktische Teams fuer Notfaelle.</p><span class=pt>ab $1.200/h</span></div><div class=scard data-svc=invest><div class=ic><i class="fa-solid fa-magnifying-glass"></i></div><h3>Ermittlungen</h3><p>Diskrete Recherchen und Checks.</p><span class=pt>ab $800/h</span></div></div></div></section>
-<section id=calc><div class=container><div class=sh><span class=badge>Kalkulator</span><h2>Preis <span>berechnen</span></h2><p>Konfigurieren Sie Ihren Einsatz - transparent & sofort</p></div><div class=calc id=calcBox><div class=fg><label>Service-Typ</label><select id=cs><option value=500>VIP Personenschutz - $500/h</option><option value=350>Event-Security - $350/h</option><option value=200>Objektschutz - $200/h</option><option value=750>Konvoi-Schutz - $750/h</option><option value=1200>Krisenmanagement - $1.200/h</option><option value=800>Ermittlungen - $800/h</option></select></div><div class=fg><label>Anzahl Kraefte: <strong id=cgv>4</strong></label><input type=range id=cg min=1 max=20 value=4></div><div class=fg><label>Stunden: <strong id=chv>8</strong></label><input type=range id=ch min=2 max=72 value=8></div><div class=fg><label style=cursor:pointer><input type=checkbox id=coa> Bewaffnet (+$100/h)</label><label style=cursor:pointer><input type=checkbox id=cog> GPS-Tracking (+$50/h)</label></div><hr style=border-color:var(--bd);margin:15px 0><div class=cr><span class=l>Basis-Preis</span><span class=v id=bp>$4.000</span></div><div class=cr><span class=l>Optionen</span><span class=v id=op>$0</span></div><div class=cr style=border-bottom:none><span class=l style=font-size:1rem;color:#fff;font-weight:600>Gesamt</span><span class=v tot id=tp>$4.000</span></div><p style=color:var(--tf);font-size:.7rem;margin-top:12px;text-align:center>50% Vorauszahlung: <strong style=color:var(--go) id=dp>$2.000</strong></p><button class="btn btn-r" style=width:100%;margin-top:14px onclick=goTo(&quot;kontakt&quot;)>Jetzt anfragen</button></div></div></section>
+/* ============ Responsive ============ */
+@media(max-width:1024px){.grid3{grid-template-columns:repeat(2,1fr)}.rev-head{grid-template-columns:1fr}}
+@media(max-width:820px){nav .links{display:none}.nav-burger{display:flex}}
+@media(max-width:768px){.grid3{grid-template-columns:1fr}.hero h1{font-size:2.2rem}.hero .stats{gap:30px}}
+</style>
+</head>
+<body>
+<div id="toasts" aria-live="polite"></div>
 
+<!-- ================= Navigation ================= -->
+<nav>
+  <a href="#" class="logo" title="Verion Security - Start"><i class="fa-solid fa-shield-halved"></i>VERION<span>SEC</span></a>
+  <ul class="links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#calc">Kalkulator</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#" class="al" onclick="openAdmin()"><i class="fa-solid fa-lock" style="font-size:.7rem"></i> Admin</a></li>
+  </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><i class="fa-solid fa-bars"></i></button>
+</nav>
+<div id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#calc" onclick="closeMenu()">Kalkulator</a>
+  <a href="#reviews" onclick="closeMenu()">Reviews</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="#" class="al" onclick="openAdmin()"><i class="fa-solid fa-lock" style="font-size:.7rem"></i> Admin</a>
+</div>
 
-<section id=reviews><div class=container><div class=sh><span class=badge>Bewertungen</span><h2>Kunden-<span>Reviews</span></h2><p>Das sagen unsere Kunden</p><div style=margin-top:6px;font-size:.9rem><span class=stars id=avgStars>★★★★★</span> <span style=color:var(--tm) id=avgText>5.0 (3)</span></div></div><div class=grid3 id=revContainer></div><div class=card style=max-width:520px;margin:28px auto 0;border-color:var(--bdr)><h3 style=color:#fff;margin-bottom:14px;text-align:center;font-size:.95rem><i class="fa-solid fa-pen-to-square" style=color:var(--r)></i> Bewertung schreiben</h3><form id=revForm><div class=fg><label>Ihre Bewertung</label><div class=si id=starsIn><i class="fa-solid fa-star on" data-s=1></i><i class="fa-solid fa-star on" data-s=2></i><i class="fa-solid fa-star on" data-s=3></i><i class="fa-solid fa-star on" data-s=4></i><i class="fa-solid fa-star on" data-s=5></i></div></div><div class=fg><label>Name</label><input type=text id=revName required placeholder=Ihr Name maxlength=25></div><div class=fg><label>Ihre Erfahrung</label><textarea id=revText required placeholder="Ihre Erfahrung mit Verion Security..." maxlength=400></textarea></div><button type=submit class="btn btn-r" style=width:100%><i class="fa-solid fa-star"></i> Bewertung absenden</button></form></div></div></section>
-<section id=faq><div class=container><div class=sh><span class=badge>FAQ</span><h2>Haeufige <span>Fragen</span></h2></div><div class=faq><div class=faq-i><div class=faq-q onclick=tgl(this)>Wie schnell ist ein Team verfuegbar? <i class="fa-solid fa-chevron-down"></i></div><div class=faq-a>Innerhalb von 30-60 Minuten nach Vertragsabschluss. 24/7 einsatzbereit.</div></div><div class=faq-i><div class=faq-q onclick=tgl(this)>Ist das Personal bewaffnet? <i class="fa-solid fa-chevron-down"></i></div><div class=faq-a>Ja, unsere Kraefte sind lizenziert und koennen bewaffnet eingesetzt werden.</div></div><div class=faq-i><div class=faq-q onclick=tgl(this)>Welche Zahlungsmethoden? <i class="fa-solid fa-chevron-down"></i></div><div class=faq-a>Bankueberweisung und Kryptowaehrung. 50% Vorauszahlung erforderlich.</div></div><div class=faq-i><div class=faq-q onclick=tgl(this)>Mindestbuchungsdauer? <i class="fa-solid fa-chevron-down"></i></div><div class=faq-a>Die Mindestdauer betraegt 2 Stunden. Fuer Laengertzeitvertraege gibt es Rabatte.</div></div></div></div></section>
-<section id=kontakt><div class=container><div class=sh><span class=badge>Kontakt</span><h2>Jetzt <span>anfragen</span></h2><p>Senden Sie uns Ihre Anfrage - wir melden uns umgehend</p></div><div style=max-width:600px;margin:0 auto><div class=card><form id=contactForm><div class=fg><label>Name / Funkrufzeichen</label><input type=text id=cName required placeholder=Ihr Name></div><div class=fg><label>Service</label><select id=cService><option>VIP Personenschutz</option><option>Event-Security</option><option>Objektschutz</option><option>Konvoi-Schutz</option><option>Krisenmanagement</option><option>Ermittlungen</option></select></div><div class=fg><label>Nachricht</label><textarea id=cMsg required placeholder="Beschreiben Sie Ihren Bedarf..."></textarea></div><button type=submit class="btn btn-r" style=width:100%><i class="fa-solid fa-paper-plane"></i> Anfrage senden</button></form></div></div></div></section>
-<footer><p>&copy; 2026 Verion Security GmbH | <i class="fa-solid fa-shield-halved" style=color:var(--r)></i> Premium Sicherheitsdienste</p></footer>
+<!-- ================= Hero ================= -->
+<section class="hero">
+  <div class="container">
+    <h1>Ihre Sicherheit.<br><em>Unsere Mission.</em></h1>
+    <p>Verion Security GmbH – Premium-Partner für Personenschutz, Objektschutz und Konvoi-Begleitung. Diskretion, Professionalität und modernste Technologie seit 2009.</p>
+    <div class="btns">
+      <a href="#services" class="btn btn-r"><i class="fa-solid fa-bolt"></i> Services</a>
+      <a href="#calc" class="btn btn-o"><i class="fa-solid fa-calculator"></i> Preisrechner</a>
+      <a href="#kontakt" class="btn btn-o"><i class="fa-solid fa-headset"></i> Anfrage</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n"><em>500</em>+</div><div class="l">Einsätze</div></div>
+      <div class="stat"><div class="n"><em>120</em>+</div><div class="l">Kräfte</div></div>
+      <div class="stat"><div class="n"><em>99</em>%</div><div class="l">Erfolgsquote</div></div>
+      <div class="stat"><div class="n"><em>15</em>+</div><div class="l">Jahre</div></div>
+    </div>
+  </div>
+</section>
+<!-- ================= Services ================= -->
+<section id="services">
+  <div class="container">
+    <div class="sh"><span class="badge">Leistungen</span><h2>Unsere <span>Services</span></h2><p>Massgeschneiderte Sicherheitslösungen</p></div>
+    <div class="grid3">
+      <div class="scard" data-svc="vip" title="Details anzeigen"><div class="ic"><i class="fa-solid fa-crown"></i></div><h3>VIP Personenschutz</h3><p>Exekutivschutz durch erfahrene Kräfte.</p><span class="pt">ab $500/h</span></div>
+      <div class="scard" data-svc="event" title="Details anzeigen"><div class="ic"><i class="fa-solid fa-users"></i></div><h3>Event-Security</h3><p>Crowd-Control und Veranstaltungssicherheit.</p><span class="pt">ab $350/h</span></div>
+      <div class="scard" data-svc="objekt" title="Details anzeigen"><div class="ic"><i class="fa-solid fa-building-shield"></i></div><h3>Objektschutz</h3><p>24/7-Bewachung mit modernster Technik.</p><span class="pt">ab $200/h</span></div>
+      <div class="scard" data-svc="konvoi" title="Details anzeigen"><div class="ic"><i class="fa-solid fa-truck-fast"></i></div><h3>Konvoi-Schutz</h3><p>Bewaffnete Eskorte mit GPS-Tracking.</p><span class="pt">ab $750/h</span></div>
+      <div class="scard" data-svc="crisis" title="Details anzeigen"><div class="ic"><i class="fa-solid fa-triangle-exclamation"></i></div><h3>Krisenmanagement</h3><p>Taktische Teams für Notfälle.</p><span class="pt">ab $1.200/h</span></div>
+      <div class="scard" data-svc="invest" title="Details anzeigen"><div class="ic"><i class="fa-solid fa-magnifying-glass"></i></div><h3>Ermittlungen</h3><p>Diskrete Recherchen und Checks.</p><span class="pt">ab $800/h</span></div>
+    </div>
+  </div>
+</section>
 
+<!-- ================= Kalkulator ================= -->
+<section id="calc">
+  <div class="container">
+    <div class="sh"><span class="badge">Kalkulator</span><h2>Preis <span>berechnen</span></h2><p>Konfigurieren Sie Ihren Einsatz – transparent &amp; sofort</p></div>
+    <div class="calc">
+      <div class="fg">
+        <label for="cs">Service-Typ</label>
+        <select id="cs">
+          <option value="500">VIP Personenschutz – $500/h</option>
+          <option value="350">Event-Security – $350/h</option>
+          <option value="200">Objektschutz – $200/h</option>
+          <option value="750">Konvoi-Schutz – $750/h</option>
+          <option value="1200">Krisenmanagement – $1.200/h</option>
+          <option value="800">Ermittlungen – $800/h</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label for="cg">Anzahl Kräfte: <strong id="cgv">4</strong></label>
+        <input type="range" id="cg" min="1" max="20" value="4">
+      </div>
+      <div class="fg">
+        <label for="ch">Stunden: <strong id="chv">8</strong></label>
+        <input type="range" id="ch" min="2" max="72" value="8">
+      </div>
+      <div class="fg">
+        <label style="cursor:pointer"><input type="checkbox" id="coa"> Bewaffnet (+$100/h)</label>
+        <label style="cursor:pointer"><input type="checkbox" id="cog"> GPS-Tracking (+$50/h)</label>
+      </div>
+      <hr style="border-color:var(--bd);margin:15px 0">
+      <div class="cr"><span class="l">Basis-Preis</span><span class="v" id="bp">$4.000</span></div>
+      <div class="cr"><span class="l">Optionen</span><span class="v" id="op">$0</span></div>
+      <div class="cr"><span class="l">Gesamtpreis</span><span class="v tot" id="tp">$4.000</span></div>
+      <div class="cr" style="border-bottom:none"><span class="l">Anzahlung (50%)</span><span class="v" id="dp">$2.000</span></div>
+      <p style="color:var(--tf);font-size:.65rem;margin-top:10px">Alle Preise in US-Dollar, pro Einsatz.</p>
+    </div>
+  </div>
+</section>
+<!-- ================= Reviews ================= -->
+<section id="reviews">
+  <div class="container">
+    <div class="sh"><span class="badge">Bewertungen</span><h2>Kunden-<span>Reviews</span></h2><p>Das sagen unsere Kunden über uns</p></div>
 
-<div class=modal id=svcModal><div class=mc style=max-width:580px><button class=mx onclick="document.getElementById(&quot;svcModal&quot;).classList.remove(&quot;show&quot;)">&times;</button><div id=svcContent></div></div></div>
-<div class=panel id=adminPanel><div class=ph><h2><i class="fa-solid fa-lock" style=color:var(--go)></i> ADMIN PANEL</h2><button class="btn btn-s btn-o" style=margin-left:auto onclick=closeAdmin()>Schliessen</button></div><div class=pc><div style=display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px><div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px 22px;text-align:center;flex:1;min-width:120px;backdrop-filter:blur(16px)"><div style="font-family:Orbitron;font-size:1.6rem;font-weight:900;color:#fff" id=aCount>0</div><div style=color:var(--tm);font-size:.68rem;text-transform:uppercase;letter-spacing:1px>Reviews</div></div><div style="background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px 22px;text-align:center;flex:1;min-width:120px;backdrop-filter:blur(16px);border-color:var(--bdr)"><div style="font-family:Orbitron;font-size:.9rem;color:var(--r2)" id=whStat>Keine</div><div style=color:var(--tm);font-size:.68rem;text-transform:uppercase;letter-spacing:1px>Webhook</div></div></div><h4 style=color:#fff;margin-bottom:10px;font-size:.85rem><i class="fa-solid fa-star"></i> Reviews verwalten</h4><table class=ptable><thead><tr><th>Name</th><th>Bewertung</th><th>Text</th><th>Aktion</th></tr></thead><tbody id=aRevTable></tbody></table><h4 style=color:#fff;margin:20px 0 10px;font-size:.85rem><i class="fa-brands fa-discord"></i> Discord Webhook</h4><input class=wh-in id=whUrl placeholder="https://discord.com/api/webhooks/..."><p style=color:var(--tf);font-size:.65rem;margin-bottom:8px>Anfragen werden automatisch gesendet</p><button class="btn btn-s btn-r" onclick=testWH()>Test senden</button></div></div>
+    <div class="rev-head">
+      <div class="rev-avg">
+        <div class="av-label">Ø Bewertung</div>
+        <div class="av-num"><span id="avgScore">5.0</span><small> / 5</small></div>
+        <div class="avg-stars" id="avgStars"></div>
+        <div class="av-cnt" id="avgCount">3 Bewertungen</div>
+      </div>
+      <div class="rev-dist">
+        <h4><i class="fa-solid fa-chart-column"></i> Bewertungs-Verteilung</h4>
+        <div id="distBars"></div>
+      </div>
+    </div>
 
+    <div class="grid3" id="revContainer"></div>
 
-<script>var reviews=[];try{reviews=JSON.parse(localStorage.getItem("vr"))}catch(e){}if(!reviews.length){reviews=[{n:"Marcus K.",r:"CEO TechCorp",t:"Absolut professionell und diskret. Absolute Empfehlung!",s:5,d:"2026-08-15"},{n:"Sarah B.",r:"Event-Managerin",t:"500 Gaeste, alles perfekt geloest. Top Preis-Leistung!",s:5,d:"2026-07-22"},{n:"John D.",r:"GF Bank Verion",t:"3 Monate Objektschutz - kein einziger Vorfall.",s:5,d:"2026-06-10"}];localStorage.setItem("vr",JSON.stringify(reviews))}var stars=5;var wh=localStorage.getItem("vwh")||"";
-function renderRev(){var c=document.getElementById("revContainer");if(!c||!reviews.length){updateAvg();return}c.innerHTML=reviews.map(function(r){var sh="★".repeat(r.s)+"☆".repeat(5-r.s);return "<div class=rev><div class=rh><div class=ra>"+r.n.charAt(0).toUpperCase()+"</div><div class=ri><h4>"+r.n+"</h4><p>"+r.r+" &bull; "+r.d+"</p></div></div><div class=stars>"+sh+"</div><div class=rt>\""+r.t+"\"</div></div>"}).join("");updateAvg()}function updateAvg(){var a=document.getElementById("avgStars");var t=document.getElementById("avgText");if(!reviews.length){a.textContent="☆☆☆☆☆";t.textContent="Keine";return}var avg=reviews.reduce(function(s,r){return s+r.s},0)/reviews.length;a.textContent="★".repeat(Math.round(avg))+"☆".repeat(5-Math.round(avg));t.textContent=avg.toFixed(1)+" ("+reviews.length+")"}
-document.getElementById("starsIn").addEventListener("click",function(e){if(e.target.tagName!=="I")return;stars=parseInt(e.target.getAttribute("data-s"));updateStars()});document.getElementById("starsIn").addEventListener("mouseover",function(e){if(e.target.tagName!=="I")return;var v=parseInt(e.target.getAttribute("data-s"));document.querySelectorAll("#starsIn i").forEach(function(s,i){s.classList.toggle("on",i<v)})});document.getElementById("starsIn").addEventListener("mouseleave",updateStars);function updateStars(){document.querySelectorAll("#starsIn i").forEach(function(s,i){s.classList.toggle("on",i<stars)})}
-document.getElementById("revForm").addEventListener("submit",function(e){e.preventDefault();var n=document.getElementById("revName").value.trim();var t=document.getElementById("revText").value.trim();if(!n||!t)return;reviews.unshift({n:n,r:"Kunde",t:t,s:stars,d:new Date().toISOString().split("T")[0]});localStorage.setItem("vr",JSON.stringify(reviews));this.reset();stars=5;updateStars();renderRev();toast("Danke fuer Ihre Bewertung!","ok")});
-function toast(m,t){t=t||"ok";var c=document.getElementById("toasts");var d=document.createElement("div");d.className="toast "+t;d.innerHTML="<i class=\"fa-solid fa-"+(t==="ok"?"circle-check":"circle-xmark")+"\"></i> "+m;c.appendChild(d);setTimeout(function(){d.style.opacity="0";setTimeout(function(){d.remove()},400)},3000)}function goTo(i){var e=document.getElementById(i);if(e)e.scrollIntoView({behavior:"smooth"})}
-function tgl(el){el.parentElement.classList.toggle("open")}
-var svcData={vip:{t:"VIP Personenschutz",b:"<h3 style=color:var(--r)><i class=fa-solid fa-crown></i> VIP Personenschutz</h3><p style=color:var(--tm);margin:12px 0>Exekutivschutz durch erfahrene Kraefte.</p><h4 style=color:#fff;margin:16px 0 8px>Leistungen:</h4><ul style=color:var(--tm);margin-left:18px;line-height:2.2><li>Persoenliche Schutzbegleitung 24/7</li><li>Risikoanalyse</li><li>Fahrzeug-Eskorte</li><li>Echtzeit-Kommunikation</li></ul><p style=color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px>$500 / Stunde pro Kraft</p>"},event:{t:"Event-Security",b:"<h3 style=color:var(--r)><i class=fa-solid fa-users></i> Event-Security</h3><p style=color:var(--tm);margin:12px 0>Professionelle Veranstaltungssicherheit.</p><h4 style=color:#fff;margin:16px 0 8px>Leistungen:</h4><ul style=color:var(--tm);margin-left:18px;line-height:2.2><li>Crowd-Control</li><li>Einlasskontrollen</li><li>Taschen-Checks</li><li>Notfall-Evakuierung</li></ul><p style=color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px>$350 / Stunde pro Kraft</p>"},objekt:{t:"Objektschutz",b:"<h3 style=color:var(--r)><i class=fa-solid fa-building-shield></i> Objektschutz</h3><p style=color:var(--tm);margin:12px 0>24/7-Bewachung mit modernster Technik.</p><h4 style=color:#fff;margin:16px 0 8px>Leistungen:</h4><ul style=color:var(--tm);margin-left:18px;line-height:2.2><li>24/7-Bewachung</li><li>Kamera-Ueberwachung</li><li>Zutrittskontrolle</li><li>Alarm-Response</li></ul><p style=color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px>$200 / Stunde pro Kraft</p>"},konvoi:{t:"Konvoi-Schutz",b:"<h3 style=color:var(--r)><i class=fa-solid fa-truck-fast></i> Konvoi-Schutz</h3><p style=color:var(--tm);margin:12px 0>Sichere Transporte mit bewaffneter Eskorte.</p><h4 style=color:#fff;margin:16px 0 8px>Leistungen:</h4><ul style=color:var(--tm);margin-left:18px;line-height:2.2><li>Bewaffnete Eskorte</li><li>GPS-Tracking</li><li>Fahrzeugschutz</li><li>Backup-Fahrzeuge</li></ul><p style=color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px>$750 / Stunde pro Kraft</p>"},crisis:{t:"Krisenmanagement",b:"<h3 style=color:var(--r)><i class=fa-solid fa-triangle-exclamation></i> Krisenmanagement</h3><p style=color:var(--tm);margin:12px 0>Taktische Teams fuer Notfaelle.</p><h4 style=color:#fff;margin:16px 0 8px>Leistungen:</h4><ul style=color:var(--tm);margin-left:18px;line-height:2.2><li>Taktische Response-Teams</li><li>Notfall-Evakuierung</li><li>Medizinische Unterstuetzung</li></ul><p style=color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px>$1200 / Stunde pro Kraft</p>"},invest:{t:"Ermittlungen",b:"<h3 style=color:var(--r)><i class=fa-solid fa-magnifying-glass></i> Ermittlungen</h3><p style=color:var(--tm);margin:12px 0>Diskrete Recherchen und Checks.</p><h4 style=color:#fff;margin:16px 0 8px>Leistungen:</h4><ul style=color:var(--tm);margin-left:18px;line-height:2.2><li>Private Ermittlungen</li><li>Hintergrund-Checks</li><li>Juristische Reports</li></ul><p style=color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px>$800 / Stunde</p>"}};
-function openSvc(s){var d=svcData[s];if(d){document.getElementById("svcContent").innerHTML="<h2>"+d.t+"</h2>"+d.b;document.getElementById("svcModal").classList.add("show")}}document.querySelectorAll(".scard").forEach(function(c){c.addEventListener("click",function(){var s=this.getAttribute("data-svc");if(s)openSvc(s)})});document.querySelectorAll(".modal").forEach(function(m){m.addEventListener("click",function(e){if(e.target===this)this.classList.remove("show")})});document.addEventListener("keydown",function(e){if(e.key==="Escape")document.querySelectorAll(".modal.show").forEach(function(m){m.classList.remove("show")})});
-function upCalc(){var r=Number(document.getElementById("cs").value);var g=Number(document.getElementById("cg").value);var h=Number(document.getElementById("ch").value);var a=document.getElementById("coa").checked?100:0;var p=document.getElementById("cog").checked?50:0;var base=r*g*h;var opt=(a+p)*h;var tot=base+opt;document.getElementById("bp").textContent="$"+base.toLocaleString();document.getElementById("op").textContent="$"+opt.toLocaleString();document.getElementById("tp").textContent="$"+tot.toLocaleString();document.getElementById("dp").textContent="$"+Math.round(tot*0.5).toLocaleString()}document.getElementById("cs").addEventListener("change",upCalc);document.getElementById("cg").addEventListener("input",function(){document.getElementById("cgv").textContent=this.value;upCalc()});document.getElementById("ch").addEventListener("input",function(){document.getElementById("chv").textContent=this.value;upCalc()});document.getElementById("coa").addEventListener("change",upCalc);document.getElementById("cog").addEventListener("change",upCalc);
-function openAdmin(){var p=prompt("Admin-Code:");if(p!=="9451"){toast("Zugriff verweigert!","err");return}document.getElementById("adminPanel").classList.add("show");document.body.style.overflow="hidden";renderAdmin()}function closeAdmin(){document.getElementById("adminPanel").classList.remove("show");document.body.style.overflow=""}function renderAdmin(){var t=document.getElementById("aRevTable");document.getElementById("aCount").textContent=reviews.length;t.innerHTML=reviews.map(function(r,i){return "<tr><td><strong style=color:#fff>"+r.n+"</strong></td><td>"+"★".repeat(r.s)+"☆".repeat(5-r.s)+"</td><td style=max-width:200px;overflow:hidden;text-overflow:ellipsis>"+r.t+"</td><td><button style=background:var(--r);color:#fff;border:none;padding:5px 10px;border-radius:5px;cursor:pointer onclick=delRev("+i+")><i class=fa-solid fa-trash></i></button></td></tr>"}).join("");var wh=document.getElementById("whUrl");if(wh)wh.value=localStorage.getItem("vwh")||"";var st=document.getElementById("whStat");if(localStorage.getItem("vwh")){st.textContent="Online";st.style.color="var(--g)"}else{st.textContent="Keine";st.style.color="var(--tm)"}}function delRev(i){if(confirm("Review von "+reviews[i].n+" loeschen?")){reviews.splice(i,1);localStorage.setItem("vr",JSON.stringify(reviews));renderRev();renderAdmin();toast("Review geloescht.","ok")}}function saveWH(){var u=document.getElementById("whUrl").value.trim();localStorage.setItem("vwh",u);wh=u;toast("Webhook gespeichert!","ok");renderAdmin()}function testWH(){if(!wh){toast("Kein Webhook konfiguriert!","err");return}var x=new XMLHttpRequest();x.open("POST",wh,true);x.setRequestHeader("Content-Type","application/json");x.send(JSON.stringify({embeds:[{title:"🧪 Test-Meldung",description:"Webhook-Test von Verion Security",color:0xef4444}]}));toast("Test gesendet!","ok")}document.getElementById("whUrl").addEventListener("change",saveWH);
-document.getElementById("contactForm").addEventListener("submit",function(e){e.preventDefault();var n=document.getElementById("cName").value.trim();var s=document.getElementById("cService").value;var m=document.getElementById("cMsg").value.trim();if(!n||!m)return;if(wh){var x=new XMLHttpRequest();x.open("POST",wh,true);x.setRequestHeader("Content-Type","application/json");x.send(JSON.stringify({embeds:[{title:"📨 Neue Anfrage von "+n,description:"**Service:** "+s+"\n**Nachricht:** "+m,color:0xef4444,footer:{text:"Verion Security • "+new Date().toLocaleString("de-DE")}}]}))}toast("Anfrage gesendet! Wir melden uns.","ok");this.reset()});
-upCalc();renderRev();updateStars();</script></body></html>
+    <div class="card rev-form-card">
+      <h3><i class="fa-solid fa-pen-to-square" style="color:var(--r)"></i> Bewertung schreiben</h3>
+      <form id="revForm">
+        <div class="fg">
+          <label for="starsIn">Ihre Bewertung</label>
+          <div class="si" id="starsIn" role="radiogroup" aria-label="Sterne-Bewertung">
+            <i class="fa-solid fa-star on" data-s="1"></i>
+            <i class="fa-solid fa-star on" data-s="2"></i>
+            <i class="fa-solid fa-star on" data-s="3"></i>
+            <i class="fa-solid fa-star on" data-s="4"></i>
+            <i class="fa-solid fa-star on" data-s="5"></i>
+          </div>
+          <span class="si-hint" id="starHint">Sehr gut</span>
+        </div>
+        <div class="fg">
+          <label for="revName">Name</label>
+          <input type="text" id="revName" required placeholder="Ihr Name" maxlength="25">
+        </div>
+        <div class="fg">
+          <label for="revText">Ihre Erfahrung</label>
+          <textarea id="revText" required placeholder="Ihre Erfahrung mit Verion Security..." maxlength="400" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-r" style="width:100%"><i class="fa-solid fa-star"></i> Bewertung absenden</button>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="container">
+    <div class="sh"><span class="badge">FAQ</span><h2>Häufige <span>Fragen</span></h2></div>
+    <div class="faq">
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">Wie schnell ist ein Team verfügbar? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-a">Innerhalb von 30-60 Minuten nach Vertragsabschluss. 24/7 einsatzbereit.</div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">Ist das Personal bewaffnet? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-a">Ja, unsere Kräfte sind lizenziert und können bewaffnet eingesetzt werden.</div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">Welche Zahlungsmethoden gibt es? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-a">Banküberweisung und Kryptowährung. 50% Vorauszahlung erforderlich.</div>
+      </div>
+      <div class="faq-i">
+        <div class="faq-q" onclick="toggleFaq(this)">Mindestbuchungsdauer? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-a">Die Mindestdauer beträgt 2 Stunden. Für längere Zeitverträge gibt es Rabatte.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ================= Kontakt ================= -->
+<section id="kontakt">
+  <div class="container">
+    <div class="sh"><span class="badge">Kontakt</span><h2>Jetzt <span>anfragen</span></h2><p>Senden Sie uns Ihre Anfrage – wir melden uns umgehend</p></div>
+    <div style="max-width:600px;margin:0 auto">
+      <div class="card">
+        <form id="contactForm">
+          <div class="fg">
+            <label for="cName">Name / Firma</label>
+            <input type="text" id="cName" required placeholder="Ihr Name">
+          </div>
+          <div class="fg">
+            <label for="cService">Service</label>
+            <select id="cService">
+              <option>VIP Personenschutz</option>
+              <option>Event-Security</option>
+              <option>Objektschutz</option>
+              <option>Konvoi-Schutz</option>
+              <option>Krisenmanagement</option>
+              <option>Ermittlungen</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="cMsg">Nachricht</label>
+            <textarea id="cMsg" required placeholder="Beschreiben Sie Ihren Bedarf..." rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-r" style="width:100%"><i class="fa-solid fa-paper-plane"></i> Anfrage senden</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Footer ================= -->
+<footer>
+  <p>&copy; 2026 Verion Security GmbH &nbsp;|&nbsp; <i class="fa-solid fa-shield-halved"></i> Premium Sicherheitsdienste</p>
+</footer>
+<!-- ================= Service-Details Modal ================= -->
+<div class="modal" id="svcModal">
+  <div class="mc" style="max-width:580px">
+    <button class="mx" aria-label="Schließen">&times;</button>
+    <div id="svcContent"></div>
+  </div>
+</div>
+
+<!-- ================= Admin-PIN Modal ================= -->
+<div class="modal" id="pinModal">
+  <div class="mc" style="max-width:400px">
+    <button class="mx" aria-label="Schließen">&times;</button>
+    <h2><i class="fa-solid fa-lock" style="color:var(--go)"></i> Admin-Zugang</h2>
+    <div class="fg">
+      <label for="pinInput">Admin-PIN</label>
+      <input type="password" id="pinInput" placeholder="••••" maxlength="8" autocomplete="off">
+    </div>
+    <button class="btn btn-r" style="width:100%" onclick="tryPin()"><i class="fa-solid fa-right-to-bracket"></i> Bestätigen</button>
+  </div>
+</div>
+
+<!-- ================= Löschen-Bestätigung ================= -->
+<div class="modal" id="confirmModal">
+  <div class="mc" style="max-width:400px">
+    <button class="mx" aria-label="Schließen">&times;</button>
+    <h2><i class="fa-solid fa-triangle-exclamation" style="color:var(--r)"></i> Bewertung löschen?</h2>
+    <p id="confirmMsg" style="color:var(--tm);font-size:.8rem;margin-bottom:18px;line-height:1.5"></p>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button class="btn btn-s btn-o" onclick="confirmCancel()">Abbrechen</button>
+      <button class="btn btn-s btn-r" onclick="confirmYes()"><i class="fa-solid fa-trash"></i> Löschen</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= Admin-Panel ================= -->
+<div class="panel" id="adminPanel">
+  <div class="ph">
+    <h2><i class="fa-solid fa-lock"></i> Admin-Panel</h2>
+    <button class="btn btn-s btn-o" style="margin-left:auto" onclick="closeAdmin()"><i class="fa-solid fa-xmark"></i> Schließen</button>
+  </div>
+  <div class="pc">
+    <div class="stat-cards">
+      <div class="stat-card"><div class="n" id="aCount">0</div><span class="l">Reviews</span></div>
+      <div class="stat-card"><div class="n sm" id="aAvg">–</div><span class="l">Ø Bewertung</span></div>
+      <div class="stat-card"><div class="n sm" id="whStat" style="color:var(--tm)">Keine</div><span class="l">Webhook</span></div>
+    </div>
+    <h4><i class="fa-solid fa-star"></i> Reviews verwalten</h4>
+    <table class="ptable">
+      <thead><tr><th>Name</th><th>Bewertung</th><th>Text</th><th>Aktion</th></tr></thead>
+      <tbody id="aRevTable"></tbody>
+    </table>
+    <h4><i class="fa-brands fa-discord"></i> Discord Webhook</h4>
+    <input class="wh-in" id="whUrl" placeholder="https://discord.com/api/webhooks/...">
+    <p class="wh-hint">Kontakt-Anfragen und Test-Meldungen werden automatisch an diesen Webhook gesendet.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-s btn-r" onclick="saveWH()"><i class="fa-solid fa-floppy-disk"></i> Speichern</button>
+      <button class="btn btn-s btn-o" onclick="testWH()"><i class="fa-solid fa-paper-plane"></i> Test senden</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= Konfiguration ================= */
+const ADMIN_PIN  = "9451";   // <-- Admin-PIN hier ändern
+const KEY_REVIEWS = "vr";    // localStorage-Key (kompatibel zur alten Version)
+const KEY_WEBHOOK = "vwh";
+
+/* ================= Daten ================= */
+let reviews = [];
+try { reviews = JSON.parse(localStorage.getItem(KEY_REVIEWS)) || []; } catch (e) { reviews = []; }
+
+if (!reviews.length) {
+  reviews = [
+    { n: "Marcus K.", r: "CEO TechCorp",    t: "Absolut professionell und diskret. Absolute Empfehlung!", s: 5, d: "2026-08-15" },
+    { n: "Sarah B.",  r: "Event-Managerin", t: "500 Gäste, alles perfekt gelöst. Top Preis-Leistung!",   s: 5, d: "2026-07-22" },
+    { n: "John D.",   r: "GF Bank Verion",  t: "3 Monate Objektschutz - kein einziger Vorfall.",        s: 5, d: "2026-06-10" }
+  ];
+  try { localStorage.setItem(KEY_REVIEWS, JSON.stringify(reviews)); } catch (e) {}
+}
+
+let webhook = "";
+try { webhook = localStorage.getItem(KEY_WEBHOOK) || ""; } catch (e) {}
+let starVal = 5;
+let pendingDelete = -1;
+
+/* ================= Helfer ================= */
+const $ = id => document.getElementById(id);
+
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+function fmtDate(iso) {
+  if (!iso) return "";
+  try {
+    const d = new Date(iso);
+    if (isNaN(d)) return esc(iso);
+    return d.toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" });
+  } catch (e) { return esc(iso); }
+}
+
+const AV_GRADS = [
+  "linear-gradient(135deg,#ef4444,#7f1d1d)",
+  "linear-gradient(135deg,#f59e0b,#92400e)",
+  "linear-gradient(135deg,#22c55e,#14532d)",
+  "linear-gradient(135deg,#3b82f6,#1e3a8a)",
+  "linear-gradient(135deg,#a78bfa,#6d28d9)",
+  "linear-gradient(135deg,#14b8a6,#0f766e)"
+];
+function avGrad(name) {
+  let h = 0; const s = String(name || "?");
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 997;
+  return AV_GRADS[h % AV_GRADS.length];
+}
+function initials(name) {
+  const parts = String(name || "?").trim().split(/\s+/);
+  return ((parts[0] || "?").charAt(0) + (parts.length > 1 ? parts[parts.length - 1].charAt(0) : "")).toUpperCase();
+}
+
+function starIcons(score) {
+  let out = "";
+  for (let i = 1; i <= 5; i++) {
+    if (score >= i - 0.25)      out += '<i class="fa-solid fa-star"></i>';
+    else if (score >= i - 0.75) out += '<i class="fa-solid fa-star-half-stroke"></i>';
+    else                        out += '<i class="fa-regular fa-star"></i>';
+  }
+  return out;
+}
+function starLabel(v) {
+  return ["", "Sehr schlecht", "Schlecht", "Okay", "Gut", "Sehr gut"][Math.max(1, Math.min(5, Math.round(v)))];
+}
+
+/* ================= Toasts ================= */
+function toast(m, type) {
+  type = type || "ok";
+  const icon = type === "ok" ? "circle-check" : (type === "info" ? "circle-info" : "circle-xmark");
+  const c = $("toasts");
+  const d = document.createElement("div");
+  d.className = "toast " + type;
+  d.innerHTML = '<i class="fa-solid fa-' + icon + '"></i><span>' + esc(m) + "</span>";
+  c.appendChild(d);
+  setTimeout(() => { d.style.opacity = "0"; setTimeout(() => d.remove(), 350); }, 3200);
+}
+
+/* ================= Reviews ================= */
+function renderReviews() {
+  const c = $("revContainer");
+  if (!reviews.length) {
+    c.innerHTML = '<div class="rev-empty"><i class="fa-solid fa-star"></i><p>Noch keine Bewertungen. Seien Sie die Erste / der Erste!</p></div>';
+    updateAvg();
+    return;
+  }
+  c.innerHTML = reviews.map((r, i) =>
+    '<article class="rev-card" style="animation-delay:' + (i * 70) + 'ms">'
+      + '<div class="rev-top">'
+        + '<div class="rev-av" style="background:' + avGrad(r.n) + '">' + esc(initials(r.n)) + '</div>'
+        + '<div class="rev-meta">'
+          + '<h4>' + esc(r.n) + '</h4>'
+          + '<p>' + esc(r.r || "Kunde") + ' · ' + fmtDate(r.d) + '</p>'
+          + '<span class="vfy"><i class="fa-solid fa-shield-halved"></i> Verifizierter Kunde</span>'
+        + '</div>'
+      + '</div>'
+      + '<div class="rev-stars-row"><span class="rv-stars">' + starIcons(r.s) + '</span><span class="rv-n">' + esc(String(r.s)) + '/5</span></div>'
+      + '<div class="rev-text"><i class="fa-solid fa-quote-left"></i>' + esc(r.t) + '</div>'
+    + '</article>'
+  ).join("");
+  updateAvg();
+}
+
+function updateAvg() {
+  const n = reviews.length;
+  const avg = n ? reviews.reduce((s, r) => s + r.s, 0) / n : 0;
+  $("avgScore").textContent = n ? avg.toFixed(1) : "–";
+  $("avgCount").textContent = n ? (n + (n === 1 ? " Bewertung" : " Bewertungen")) : "Noch keine Bewertungen";
+  $("avgStars").innerHTML = starIcons(avg);
+
+  const d = [0, 0, 0, 0, 0];
+  reviews.forEach(r => { if (r.s >= 1 && r.s <= 5) d[r.s - 1]++; });
+  const bars = $("distBars");
+  bars.innerHTML = "";
+  for (let st = 5; st >= 1; st--) {
+    const cnt = d[st - 1];
+    const pct = n ? Math.round(cnt / n * 100) : 0;
+    const row = document.createElement("div");
+    row.className = "dist-row";
+    row.innerHTML = '<span class="dl">' + st + '<i class="fa-solid fa-star"></i></span>'
+      + '<div class="dtrack"><div class="dfill"></div></div>'
+      + '<span class="dp">' + cnt + '</span>';
+    bars.appendChild(row);
+    const fill = row.querySelector(".dfill");
+    requestAnimationFrame(() => { fill.style.width = pct + "%"; });
+  }
+}
+
+/* ================= Sterne-Eingabe ================= */
+function paintStars(v) {
+  document.querySelectorAll("#starsIn i").forEach((s, i) => s.classList.toggle("on", i < v));
+  $("starHint").textContent = starLabel(v);
+}
+(function initStars() {
+  const si = $("starsIn");
+  si.addEventListener("click", e => {
+    const t = e.target.closest("i"); if (!t) return;
+    starVal = parseInt(t.getAttribute("data-s"), 10);
+    paintStars(starVal);
+  });
+  si.addEventListener("mouseover", e => {
+    const t = e.target.closest("i"); if (!t) return;
+    paintStars(parseInt(t.getAttribute("data-s"), 10));
+  });
+  si.addEventListener("mouseleave", () => paintStars(starVal));
+})();
+
+$("revForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const n = $("revName").value.trim();
+  const t = $("revText").value.trim();
+  if (!n || !t) { toast("Bitte Name und Text ausfüllen.", "err"); return; }
+  if (starVal < 1) { toast("Bitte Sterne vergeben.", "err"); return; }
+  reviews.unshift({ n, r: "Kunde", t, s: starVal, d: new Date().toISOString().split("T")[0] });
+  try { localStorage.setItem(KEY_REVIEWS, JSON.stringify(reviews)); } catch (err) {}
+  e.target.reset();
+  starVal = 5; paintStars(5);
+  renderReviews();
+  toast("Vielen Dank! Ihre Bewertung wurde veröffentlicht.");
+});
+
+/* ================= FAQ ================= */
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains("open");
+  document.querySelectorAll(".faq-i.open").forEach(f => f.classList.remove("open"));
+  if (!wasOpen) item.classList.add("open");
+}
+
+/* ================= Kalkulator ================= */
+const fmtNum = new Intl.NumberFormat("de-DE");
+function upCalc() {
+  const rate   = Number($("cs").value) || 0;
+  const guards = Number($("cg").value) || 1;
+  const hours  = Number($("ch").value) || 1;
+  const armed  = $("coa").checked ? 100 : 0;
+  const gps    = $("cog").checked ? 50 : 0;
+  const base   = rate * guards * hours;
+  const opts   = (armed + gps) * hours;
+  const total  = base + opts;
+  $("cgv").textContent = guards;
+  $("chv").textContent = hours;
+  $("bp").textContent = "$" + fmtNum.format(base);
+  $("op").textContent = "$" + fmtNum.format(opts);
+  $("tp").textContent = "$" + fmtNum.format(total);
+  $("dp").textContent = "$" + fmtNum.format(Math.round(total * 0.5));
+}
+["cs", "coa", "cog"].forEach(id => $(id).addEventListener("change", upCalc));
+["cg", "ch"].forEach(id => $(id).addEventListener("input", upCalc));
+
+/* ================= Service-Details ================= */
+function openSvc(s) {
+  const d = svcData[s];
+  if (!d) return;
+  $("svcContent").innerHTML = d.b;
+  $("svcModal").classList.add("show");
+  $("svcModal").querySelector(".mc").scrollTop = 0;
+}
+
+const svcData = {
+  vip: {
+    t: "VIP Personenschutz",
+    b: '<h3 style="color:var(--r)"><i class="fa-solid fa-crown"></i> VIP Personenschutz</h3>'
+     + '<p style="color:var(--tm);margin:12px 0">Exekutivschutz durch erfahrene Kräfte.</p>'
+     + '<h4 style="color:#fff;margin:16px 0 8px">Leistungen:</h4>'
+     + '<ul style="color:var(--tm);margin-left:18px;line-height:2.2"><li>Persönliche Schutzbegleitung 24/7</li><li>Risikoanalyse</li><li>Fahrzeug-Eskorte</li><li>Echtzeit-Kommunikation</li></ul>'
+     + '<p style="color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px">$500 / Stunde pro Kraft</p>'
+  },
+  event: {
+    t: "Event-Security",
+    b: '<h3 style="color:var(--r)"><i class="fa-solid fa-users"></i> Event-Security</h3>'
+     + '<p style="color:var(--tm);margin:12px 0">Professionelle Veranstaltungssicherheit.</p>'
+     + '<h4 style="color:#fff;margin:16px 0 8px">Leistungen:</h4>'
+     + '<ul style="color:var(--tm);margin-left:18px;line-height:2.2"><li>Crowd-Control</li><li>Einlasskontrollen</li><li>Taschen-Checks</li><li>Notfall-Evakuierung</li></ul>'
+     + '<p style="color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px">$350 / Stunde pro Kraft</p>'
+  },
+  objekt: {
+    t: "Objektschutz",
+    b: '<h3 style="color:var(--r)"><i class="fa-solid fa-building-shield"></i> Objektschutz</h3>'
+     + '<p style="color:var(--tm);margin:12px 0">24/7-Bewachung mit modernster Technik.</p>'
+     + '<h4 style="color:#fff;margin:16px 0 8px">Leistungen:</h4>'
+     + '<ul style="color:var(--tm);margin-left:18px;line-height:2.2"><li>Zutrittskontrolle</li><li>Videoüberwachung</li><li>Alarm-Management</li><li>Streifengänge</li></ul>'
+     + '<p style="color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px">$200 / Stunde pro Kraft</p>'
+  },
+  konvoi: {
+    t: "Konvoi-Schutz",
+    b: '<h3 style="color:var(--r)"><i class="fa-solid fa-truck-fast"></i> Konvoi-Schutz</h3>'
+     + '<p style="color:var(--tm);margin:12px 0">Bewaffnete Eskorte mit GPS-Tracking.</p>'
+     + '<h4 style="color:#fff;margin:16px 0 8px">Leistungen:</h4>'
+     + '<ul style="color:var(--tm);margin-left:18px;line-height:2.2"><li>Werttransporte</li><li>GPS-Tracking 24/7</li><li>Route-Planung</li><li>Bewaffnete Begleitung</li></ul>'
+     + '<p style="color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px">$750 / Stunde pro Kraft</p>'
+  },
+  crisis: {
+    t: "Krisenmanagement",
+    b: '<h3 style="color:var(--r)"><i class="fa-solid fa-triangle-exclamation"></i> Krisenmanagement</h3>'
+     + '<p style="color:var(--tm);margin:12px 0">Taktische Teams für Notfälle.</p>'
+     + '<h4 style="color:#fff;margin:16px 0 8px">Leistungen:</h4>'
+     + '<ul style="color:var(--tm);margin-left:18px;line-height:2.2"><li>24/7-Alarmbereitschaft</li><li>Bedrohungslagen</li><li>Evakuierungen</li></ul>'
+     + '<p style="color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px">$1.200 / Stunde pro Kraft</p>'
+  },
+  invest: {
+    t: "Ermittlungen",
+    b: '<h3 style="color:var(--r)"><i class="fa-solid fa-magnifying-glass"></i> Ermittlungen</h3>'
+     + '<p style="color:var(--tm);margin:12px 0">Diskrete Recherchen und Checks.</p>'
+     + '<h4 style="color:#fff;margin:16px 0 8px">Leistungen:</h4>'
+     + '<ul style="color:var(--tm);margin-left:18px;line-height:2.2"><li>Hintergrund-Checks</li><li>Observierung</li><li>Wirtschaftsermittlungen</li></ul>'
+     + '<p style="color:var(--r4);font-weight:700;font-size:1.3rem;margin-top:16px">$800 / Stunde pro Kraft</p>'
+  }
+};
+document.querySelectorAll(".scard").forEach(card => {
+  card.addEventListener("click", () => openSvc(card.dataset.svc));
+});
+
+/* ================= Modal-Grundlagen ================= */
+document.querySelectorAll(".modal .mx").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const m = btn.closest(".modal");
+    m.classList.remove("show");
+    if (m === $("confirmModal")) pendingDelete = -1;
+  });
+});
+document.querySelectorAll(".modal").forEach(m => {
+  m.addEventListener("click", e => {
+    if (e.target === m) {
+      m.classList.remove("show");
+      if (m === $("confirmModal")) pendingDelete = -1;
+    }
+  });
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") document.querySelectorAll(".modal.show").forEach(m => m.classList.remove("show"));
+});
+
+/* ================= Mobile Navigation ================= */
+$("navBurger").addEventListener("click", () => $("mobileMenu").classList.toggle("open"));
+function closeMenu() { $("mobileMenu").classList.remove("open"); }
+
+/* ================= Admin ================= */
+function openAdmin() {
+  $("pinInput").value = "";
+  $("pinModal").classList.add("show");
+  setTimeout(() => { try { $("pinInput").focus(); } catch (e) {} }, 80);
+}
+function tryPin() {
+  const p = $("pinInput").value.trim();
+  if (p !== ADMIN_PIN) {
+    toast("Falsche PIN. Zugriff verweigert!", "err");
+    $("pinInput").select();
+    return;
+  }
+  $("pinModal").classList.remove("show");
+  $("adminPanel").classList.add("show");
+  document.body.style.overflow = "hidden";
+  renderAdmin();
+}
+$("pinInput").addEventListener("keydown", e => { if (e.key === "Enter") tryPin(); });
+
+function closeAdmin() {
+  $("adminPanel").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+function renderAdmin() {
+  const t = $("aRevTable");
+  $("aCount").textContent = reviews.length;
+  const avg = reviews.length ? reviews.reduce((s, r) => s + r.s, 0) / reviews.length : 0;
+  $("aAvg").textContent = reviews.length ? avg.toFixed(1) + " / 5" : "–";
+  t.innerHTML = reviews.map((r, i) =>
+    "<tr><td><strong style=\"color:#fff\">" + esc(r.n) + "</strong></td>"
+    + '<td><span class="tb-stars">' + starIcons(r.s) + "</span></td>"
+    + '<td style="max-width:240px;overflow:hidden;text-overflow:ellipsis">' + esc(r.t) + "</td>"
+    + '<td><button class="btn-danger" title="Löschen" onclick="askDelete(' + i + ')"><i class="fa-solid fa-trash"></i></button></td></tr>'
+  ).join("");
+  $("whUrl").value = webhook;
+  $("whStat").textContent = webhook ? "Online" : "Keine";
+  $("whStat").style.color = webhook ? "var(--g)" : "var(--tm)";
+}
+
+function askDelete(i) {
+  pendingDelete = i;
+  $("confirmMsg").textContent = 'Bewertung von "' + (reviews[i].n || "?") + '" wirklich löschen?';
+  $("confirmModal").classList.add("show");
+}
+function confirmCancel() {
+  pendingDelete = -1;
+  $("confirmModal").classList.remove("show");
+}
+function confirmYes() {
+  if (pendingDelete >= 0 && pendingDelete < reviews.length) {
+    const name = reviews[pendingDelete].n;
+    reviews.splice(pendingDelete, 1);
+    try { localStorage.setItem(KEY_REVIEWS, JSON.stringify(reviews)); } catch (e) {}
+    renderReviews();
+    renderAdmin();
+    toast("Bewertung von " + name + " gelöscht.", "ok");
+  }
+  confirmCancel();
+}
+
+/* ================= Webhook ================= */
+function postWH(embed) {
+  if (!webhook || !embed) return;
+  fetch(webhook, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ embeds: [embed] })
+  }).catch(err => toast("Webhook-Fehler: " + err.message, "err"));
+}
+function saveWH() {
+  const u = $("whUrl").value.trim();
+  if (u && !/^https?:\/\//i.test(u)) { toast("Bitte gültige URL eingeben (https://...).", "err"); return; }
+  webhook = u;
+  try { localStorage.setItem(KEY_WEBHOOK, webhook); } catch (e) {}
+  renderAdmin();
+  toast(webhook ? "Webhook gespeichert." : "Webhook entfernt.", "ok");
+}
+function testWH() {
+  if (!webhook) { toast("Kein Webhook konfiguriert.", "err"); return; }
+  postWH({ title: "🧪 Test-Meldung", description: "Webhook-Test von Verion Security", color: 0xef4444 });
+  toast("Test gesendet!", "ok");
+}
+
+/* ================= Kontakt ================= */
+$("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const n = $("cName").value.trim();
+  const s = $("cService").value;
+  const m = $("cMsg").value.trim();
+  if (!n || !m) return;
+  postWH({
+    title: "📨 Neue Anfrage von " + n,
+    description: "**Service:** " + s + "\n**Nachricht:** " + m,
+    color: 0xef4444,
+    footer: { text: "Verion Security • " + new Date().toLocaleString("de-DE") }
+  });
+  toast("Anfrage gesendet! Wir melden uns umgehend.", "ok");
+  e.target.reset();
+});
+
+/* ================= Start ================= */
+upCalc();
+renderReviews();
+paintStars(starVal);
+</script>
+</body>
+</html>
